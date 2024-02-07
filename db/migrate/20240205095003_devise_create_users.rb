@@ -12,7 +12,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[6.1]
       t.string :post_code,          null: false
       t.string :address,            null: false
       t.string :user_name,          null: false
-      t.string :introduction
+      t.text   :introduction
       t.boolean :is_active,         null: false, default: true
 
       ## Recoverable
