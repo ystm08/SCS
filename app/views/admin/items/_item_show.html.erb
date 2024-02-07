@@ -1,0 +1,13 @@
+<!--@item → item-->
+<div><%= item.name %></div>
+
+編集ボタンif文
+
+<div><%= image_tag item.get_item_image(230,230) %></div>
+<div><%= item.introduction %></div>
+<div>カテゴリー:<%= item.category.name %></div>
+<div>¥<%= number_with_delimiter(item.add_tax_price, delimiter: ',') %>(税込)</div>
+
+個数
+いいね保存
+カートに入れるボタン　if文

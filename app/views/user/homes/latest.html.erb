@@ -1,0 +1,5 @@
+<div>
+  <% @latest_reviews.each do |review| %>
+    <%= attachment_image_tag review, :review_image, size: '125x500' %>
+  <% end %>
+</div>

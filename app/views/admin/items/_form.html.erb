@@ -1,0 +1,30 @@
+<%= form_with model: item, url: '/admin/items', method: :post do |f| %>
+<!--@item → item-->
+  <table class="table table-borderless">
+    <tr>
+      <th>商品画像</th>
+      <td><%= f.file_field :item_image, accept: "image/*" %></td>
+    </tr>
+    <tr>
+      <th>商品名</th>
+      <td><%= f.text_field :name, placeholder: "商品名" %></td>
+    </tr>
+    <tr>
+      <th>商品説明</th>
+      <td><%= f.text_area :introduction, rows: '5', placeholder: "ここに説明文を記述します" %></td>
+    </tr>
+    <tr>
+      <th>カテゴリー</th>
+      <td><%= f.collection_select :category_id, Categories.all, :id, :name, include_blank: "-- 選択してください --" %></td>
+    </tr>
+    <tr>
+      <th>税抜価格</th>
+      <td><%= f.text_field :price, placeholder: "1000" %>円</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><%= f.submit submit_label, class: "btn btn-success" %></td>
+      <!--submit_labelはif文に変更できるなら。viewから消して_formにif文で編集か新規登録か-->
+    </tr>
+  </table>
+<% end %>

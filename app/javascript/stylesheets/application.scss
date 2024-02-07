@@ -1,1 +1,32 @@
 @use '~bootstrap/scss/bootstrap';
+
+.about-container {
+  width: 1400px;
+  height: 700px;
+  position: relative;
+}
+.about-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.about_us {
+  position: absolute;
+  top: 30%;
+  left: 65%;
+  font-size: 50px;
+  color: white;
+  padding:0;
+  margin:0;
+}
+
+.about_body {
+  position: absolute;
+  top: 40%;
+  left: 65%;
+  font-size: 25px;
+  color: white;
+  padding:0;
+  margin:0;
+}
