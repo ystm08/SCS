@@ -1,0 +1,23 @@
+<h4>Profile edit</h4>
+
+<%= form_with model:@user, local:true do |f| %>
+  <div class="form-group">
+    <%= f.label :user_name, "Account name"%><br>
+    <%= f.text_field :user_name %>
+  </div>
+ <div class="form-group">
+    <%= f.label :image %><br>
+    <%= f.file_field :profile_image, class: "form-control-file user_image", accept: 'image/*' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :introduction %><br>
+    <%= f.text_area :introduction %>
+  </div>
+  <div class="form-group">
+    <%= f.submit "更新する" %>
+  </div>
+
+  <div>
+    <%= link_to "退会する", users_withdraw_path, method: :patch, :class => "btn btn-danger ms-3", data: { confirm: "本当に退会しますか？" }  %>
+  </div>
+<% end %>

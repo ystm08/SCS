@@ -1,0 +1,18 @@
+<div><%= image_tag @user.get_profile_image(100,100) %></div>
+
+<div><%= @user.user_name %>
+♡
+</div>
+
+<% unless @user.guest_user? %>
+<div>
+  <%= link_to "プロフィールを編集", edit_user_path %>
+</div>
+<% end %>
+
+<div><%= @user.introduction %></div>
+
+自分の投稿一覧
+
+
+
