@@ -1,5 +1,5 @@
 <%= form_with model: item, url: '/admin/items', method: :post do |f| %>
-<!--@item → item-->
+<!--@item → item, @categories → categories-->
   <table class="table table-borderless">
     <tr>
       <th>商品画像</th>
@@ -15,7 +15,7 @@
     </tr>
     <tr>
       <th>カテゴリー</th>
-      <td><%= f.collection_select :category_id, Categories.all, :id, :name, include_blank: "-- 選択してください --" %></td>
+      <td><%= f.collection_select :category_id, categories, :id, :name, include_blank: "-- 選択してください --" %></td>
     </tr>
     <tr>
       <th>税抜価格</th>

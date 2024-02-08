@@ -1,0 +1,7 @@
+<h4>Look Book</h4>
+
+<% @reviews.each do |review| %>
+  <div>
+    <%= image_tag url_for(review.review_image.variant(resize: "400x400")) %>
+  </div>
+<% end %>

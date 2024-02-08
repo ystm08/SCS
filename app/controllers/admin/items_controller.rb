@@ -8,6 +8,7 @@ class Admin::ItemsController < ApplicationController
 
   def new
     @item = Item.new
+    @categories = Category.all
   end
 
   def create
@@ -23,12 +24,14 @@ class Admin::ItemsController < ApplicationController
   end
 
   def edit
+    @categories = Category.all
   end
 
   def update
     if @item.update(item_params)
       redirect_to admin_item_path(@item)
     else
+      @categories = Category.all
       render :edit
     end
   end
@@ -40,7 +43,7 @@ class Admin::ItemsController < ApplicationController
   end
 
   def item_params
-    params.require(:product).permit(:category_id, :name, :introduction, :price, :item_image)
+    params.require(:item).permit(:category_id, :name, :introduction, :price, :item_image)
   end
 
 end
