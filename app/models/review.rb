@@ -4,10 +4,15 @@ class Review < ApplicationRecord
   has_many :reviews_items
   has_many :items, through: :reviews_items
   has_many :favorites, dependent: :destroy
+  has_many :comments, dependent: :destroy
   belongs_to :user
-  
+
   def favorited_by?(user)
     favorites.exists?(user_id: user.id)
+  end
+
+  def get_review_image(width, height)
+    review_image.variant(resize_to_limit: [width, height]).processed
   end
 
 end

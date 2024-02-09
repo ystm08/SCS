@@ -62,3 +62,5 @@ gem "enum_help"
 gem 'kaminari'
 
 gem 'cocoon'
+
+gem 'ransack'

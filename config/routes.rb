@@ -20,12 +20,15 @@ Rails.application.routes.draw do
 
   scope module: :user do
     root "homes#top"
+    get 'search' => 'searches#search'
     get 'homes/about', as: 'about'
-    get '/categories/index' => 'categories#index'
+    get 'homes/latest', as: 'latest'
     patch  '/users/withdraw' => 'users#withdraw'
     resources :users
-    resources :reviews
+    resources :reviews do
       resource :favorite, only: [:create, :destroy]
+      resources :comments, only: [:create, :destroy]
+    end
   end
 
 end

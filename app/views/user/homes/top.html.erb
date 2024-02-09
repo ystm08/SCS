@@ -1,6 +1,7 @@
-<h1>User::Homes#top</h1>
-<p>Find me in app/views/user/homes/top.html.erb</p>
+<div><%= link_to "Log in", new_user_session_path %></div>
 
-<%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+<div><%= link_to "Guest log in", users_guest_sign_in_path %></div>
 
-<%= link_to 'fashion', reviews_path(category: 'fashion') %>
+<div><%= link_to "Sign up", new_user_registration_path %></div>
+
+<div><%= link_to "Log out", destroy_user_session_path, method: :delete %></div>

@@ -14,11 +14,23 @@ class User::ReviewsController < ApplicationController
   end
 
   def index
+    @category = params(:category)
     @reviews = Review.all
+    if params[:category].present?
+      case params[:category]
+      when 'fashion'
+        @reviews = @reviews.where(category: 'fashion')
+      when 'nail'
+        @reviews = @reviews.where(category: 'nail')
+      when 'cosmetics'
+        @reviews = @reviews.where(category: 'cosmetics')
+      end
+    end
   end
 
   def show
     @review = Review.find(params[:id])
+    @comment = Comment.new
   end
 
   def edit

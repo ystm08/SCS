@@ -1,5 +1,8 @@
+<%= render 'layouts/latest_header' %>
 <div>
   <% @latest_reviews.each do |review| %>
-    <%= attachment_image_tag review, :review_image, size: '125x500' %>
+    <%= link_to review_path(review.id) do %>
+    <%= image_tag review.get_review_image(200,1000) %>
+    <% end %>
   <% end %>
 </div>

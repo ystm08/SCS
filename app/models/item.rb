@@ -8,4 +8,9 @@ class Item < ApplicationRecord
   def add_tax_price
     (self.price * 1.10).round
   end
+
+  def self.ransackable_attributes(auth_object = nil)
+    ["category_id", "introduction", "name", "price"]
+  end
+
 end

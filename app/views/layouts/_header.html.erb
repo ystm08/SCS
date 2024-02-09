@@ -1,0 +1,58 @@
+<header>
+  <nav>
+    <div class="container">
+      <a class="navbar-brand" href="/homes/latest"><span>SCS</span></a>
+      <ul class="navbar-nav">
+      <% if user_signed_in? %>
+        <li>
+          <%= link_to new_review_path(current_user) do %>
+            Post
+          <% end %>
+        </li>
+        <li>
+          <%=  link_to user_path(current_user) do %>
+            My page
+          <% end %>
+        </li>
+        <!--<li>-->
+        <!--  <%#=  link_to books_path do %>-->
+        <!--    <i class="fa-thin fa-heart"></i>-->
+        <!--  <%# end %>-->
+        <!--</li>-->
+        <!--<li>-->
+        <!--  <%#=  link_to books_path do %>-->
+          <!--<i class="fa-regular fa-cart-shopping"></i>カート-->
+          <%# end %>
+        <!--</li>-->
+        <li>
+          <%= link_to destroy_user_session_path, method: :delete do %>
+            Log out
+          <% end %>
+        </li>
+      <% else %>
+        <li>
+          <%= link_to root_path do %>
+          Home
+          <% end %>
+        </li>
+        <li>
+          <%= link_to about_path do %>
+            About
+          <% end %>
+        </li>
+        <li>
+          <%= link_to new_user_registration_path do %>
+            Sign up
+          <% end %>
+        </li>
+        <li>
+          <%= link_to new_user_session_path do %>
+            Log in
+          <% end %>
+        </li>
+      <% end %>
+      <%= render 'layouts/search' %>
+      </ul>
+    </div>
+  </nav>
+</header>
