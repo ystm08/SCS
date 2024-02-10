@@ -21,6 +21,7 @@ class Admin::ItemsController < ApplicationController
   end
 
   def show
+    @cart_item = CartItem.new
   end
 
   def edit

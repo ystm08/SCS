@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     get 'top' => 'homes#top', as: 'top'
+    resources :users, only: [:index, :show, :update]
     resources :items, only: [:index, :show, :new, :create, :edit, :update]
   end
 
@@ -28,6 +29,12 @@ Rails.application.routes.draw do
     resources :reviews do
       resource :favorite, only: [:create, :destroy]
       resources :comments, only: [:create, :destroy]
+    end
+    resources :cart_items, only: [:index, :create, :destroy] do
+      member do
+        patch 'increase'
+        patch 'decrease'
+      end
     end
   end
 

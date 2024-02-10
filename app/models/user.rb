@@ -7,6 +7,7 @@ class User < ApplicationRecord
   has_many :reviews
   has_many :favorites, dependent: :destroy
   has_many :comments, dependent: :destroy
+  has_many :cart_items, dependent: :destroy
 
   has_one_attached :profile_image
 
@@ -36,6 +37,14 @@ class User < ApplicationRecord
 
   def guest_user?
     email == GUEST_USER_EMAIL
+  end
+
+  def user_status
+    if is_active == false
+      "退会"
+    else
+      "有効"
+    end
   end
 
 end
