@@ -25,12 +25,14 @@ Rails.application.routes.draw do
     get 'homes/about', as: 'about'
     get 'homes/latest', as: 'latest'
     patch  '/users/withdraw' => 'users#withdraw'
+    delete "cart_items/destroy_all" => "cart_items#destroy_all"
     resources :users
+    resources :items
     resources :reviews do
       resource :favorite, only: [:create, :destroy]
       resources :comments, only: [:create, :destroy]
     end
-    resources :cart_items, only: [:index, :create, :destroy] do
+    resources :cart_items, only: [:index, :create, :update, :destroy] do
       member do
         patch 'increase'
         patch 'decrease'
