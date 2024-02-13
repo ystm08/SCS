@@ -10,9 +10,9 @@
 
 ここからif文でユーザーのみに表示
 個数
-いいね保存
 <!--@cart_item → cart_item-->
 <%= form_with model: @cart_item do |f| %>
   <%= f.hidden_field :item_id, :value => item.id %>
+  <%= f.select :amount, *[1..10] %>
   <%= f.submit "カートに入れる" %>
 <% end %>

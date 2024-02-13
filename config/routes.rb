@@ -38,6 +38,10 @@ Rails.application.routes.draw do
         patch 'decrease'
       end
     end
+    resources :orders, only: [:index, :create]
+      patch :update_status
+      post "orders/confirm" => "orders#confirm"
+      get "complete" => "orders#complete"
   end
 
 end

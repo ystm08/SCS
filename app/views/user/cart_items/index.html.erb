@@ -37,5 +37,5 @@
    <%= link_to "買い物を続ける", latest_path %>
    <%= link_to "カートの中身を空にする", cart_items_destroy_all_path, method: :delete, data: { confirm: "本当に空にしますか？"} %>
    送料は無料です
-   購入手続きへ進む
+   <%= link_to "購入手続きへ進む", orders_confirm_path, method: :post %>
  </div>

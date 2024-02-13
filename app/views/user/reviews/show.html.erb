@@ -12,7 +12,9 @@
 </div>
 <div><%= @review.content %></div>
 <% if @review.user == current_user %>
-  <%= link_to "編集", edit_review_path(@review) %>
+  <%= link_to edit_review_path(@review) do %>
+  <i class="fa-solid fa-pen"></i>
+  <% end %>
 <% end %>
 <div>おすすめ商品</div>
 <div>
@@ -25,7 +27,9 @@
 <% @review.comments.each do |comment| %>
   <div><%= comment.user.name %><%= comment.content %>
   <% if comment.user == current_user %>
-    <%= link_to "削除", review_comment_path(comment.review, comment), method: :delete %>
+    <%= link_to review_comment_path(comment.review, comment), method: :delete do %>
+    <i class="fa-solid fa-trash-can"></i>
+    <% end %>
   <% end %>
   </div>
 <% end %>

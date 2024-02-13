@@ -1,5 +1,7 @@
 class Order < ApplicationRecord
 
-  enum status: { shipping_in_process: 0, shipping_completed: 1 }
+  has_many :order_details
+  has_many :items, through: :order_details
+  belongs_to :user
 
 end
