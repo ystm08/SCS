@@ -37,7 +37,7 @@ class User::OrdersController < ApplicationController
   end
 
   def index
-    
+    @orders = current_user.orders.all
   end
 
 end

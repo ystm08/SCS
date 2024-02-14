@@ -13,10 +13,11 @@
 <div><%= @review.content %></div>
 <% if @review.user == current_user %>
   <%= link_to edit_review_path(@review) do %>
-  <i class="fa-solid fa-pen"></i>
+    edit
   <% end %>
 <% end %>
 <div>おすすめ商品</div>
+
 <div>
   <%= form_with model: [@review, @comment] do |f| %>
     <%= f.text_field :content %>

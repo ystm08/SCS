@@ -1,7 +1,18 @@
-<div><%= link_to "Log in", new_user_session_path %></div>
-
-<div><%= link_to "Guest log in", users_guest_sign_in_path %></div>
-
-<div><%= link_to "Sign up", new_user_registration_path %></div>
-
-<div><%= link_to "Log out", destroy_user_session_path, method: :delete %></div>
+<div class="container">
+  <div class="row">
+    <div class="col-5">
+      <div class="mt-5">
+      <%= image_tag "scs.png", :size => '400x200' %>
+      </div>
+    </div>
+    <div class="col-7">
+      <div class="mt-5">
+      <p><strong>無料で登録して続行する</strong></p>
+      <div>すでにアカウントをお持ちの場合はログインしてください。</div>
+      <div><%= link_to "Sign up", new_user_registration_path %></div>
+      <div><%= link_to "Log in", new_user_session_path %></div>
+      <div><%= link_to "Guest log in", users_guest_sign_in_path, method: :post %></div>
+      </div>
+    </div>
+  </div>
+</div>

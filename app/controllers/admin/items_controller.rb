@@ -3,7 +3,7 @@ class Admin::ItemsController < ApplicationController
   before_action :set_item, only: [:show, :edit, :update]
 
   def index
-    @items = Item.all
+    @items = Item.page(params[:page]).per(2)
   end
 
   def new

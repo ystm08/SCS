@@ -1,4 +1,3 @@
-<%= render 'layouts/latest_header' %>
 <div>
   <% @latest_reviews.each do |review| %>
     <%= link_to review_path(review.id) do %>

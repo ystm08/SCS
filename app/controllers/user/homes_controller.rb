@@ -7,7 +7,8 @@ class User::HomesController < ApplicationController
   end
 
   def latest
-    @latest_reviews = Review.order(created_at: :desc).limit(8)
+    @latest_reviews = Review.order(created_at: :desc).limit(7)
+    render :layout => 'latest'
   end
 
 end

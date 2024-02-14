@@ -4,6 +4,13 @@
   <div>Upload goods image</div>
   <div><%= f.file_field :review_image, accept: "image/*" %></div>
   <div>Select goods</div>
+  <div><%= f.fields_for :items do |t| %>
+    <%= render "item_fields", f: t %>
+  <% end %>
+  <%= link_to_add_association "追加", f, :items %>
+  </div>
+  <%#= link_to_remove_association "削除", f %>
+  <div><%#= link_to_add_association "追加", f%></div>
   cocconでグッズ選択
   <div>Review goods</div>
   <div><%= f.text_area :content %></div>

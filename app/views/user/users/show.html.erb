@@ -12,7 +12,8 @@
 
 <div><%= @user.introduction %></div>
 
-自分の投稿一覧
-
-
-
+<% @reviews.each do |review| %>
+  <%= link_to review_path(review.id) do %>
+  <%= image_tag review.get_review_image(300,300) %>
+  <% end %>
+<% end %>

@@ -1,6 +1,7 @@
 class User::ReviewsController < ApplicationController
   def new
     @review = Review.new
+    @review_item = @review.items.build
   end
 
   def create
@@ -25,6 +26,8 @@ class User::ReviewsController < ApplicationController
       when 'cosmetics'
         @reviews = @reviews.where(category: 'cosmetics')
       end
+    else
+      @category = "Look Book"
     end
   end
 

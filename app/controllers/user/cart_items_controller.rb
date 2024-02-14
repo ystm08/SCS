@@ -7,18 +7,8 @@ class User::CartItemsController < ApplicationController
   end
 
   def create
-    increase_or_create(params[:cart_item][:item_id])
+    increase_or_create(cart_item_params)
     redirect_to cart_items_path
-  end
-
-  def increase
-    @cart_item.increment!(:amount, 1)
-    redirect_to request.referer
-  end
-
-  def decrease
-    decrease_or_destroy(@cart_item)
-    redirect_to request.referer
   end
 
   def update
@@ -48,20 +38,12 @@ class User::CartItemsController < ApplicationController
     @cart_item = current_user.cart_items.find(params[:id])
   end
 
-  def increase_or_create(item_id)
-    cart_item = current_user.cart_items.find_by(item_id:)
+  def increase_or_create(cart_item_params)
+    cart_item = current_user.cart_items.find_by(item_id: cart_item_params[:item_id])
     if cart_item
-      cart_item.increment!(:amount, 1)
+      cart_item.increment!(:amount, cart_item_params[:amount].to_i)
     else
-      current_user.cart_items.build(item_id:).save
-    end
-  end
-
-  def decrease_or_destroy(cart_item)
-    if cart_item.quantity > 1
-      cart_item.decrement!(:amount, 1)
-    else
-      cart_item.destroy
+      current_user.cart_items.create(item_id: cart_item_params[:item_id], amount: cart_item_params[:amount])
     end
   end
 

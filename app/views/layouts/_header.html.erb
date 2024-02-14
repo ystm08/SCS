@@ -1,17 +1,23 @@
 <header>
-  <nav>
-    <div class="container">
-      <a class="navbar-brand" href="/homes/latest"><span>SCS</span></a>
-      <ul class="navbar-nav">
+ <nav>
+   <div class="container">
+    <div class="row">
+      <a class="navbar-brand" href="/homes/latest"><%= image_tag "scs2.png", :size => '50x20' %></a>
+      <ul class="list-group list-group-horizontal">
       <% if user_signed_in? %>
-        <li>
-          <%= link_to new_review_path(current_user) do %>
-            Post
+        <li class="list-group-item">
+          <%= link_to new_review_path do %>
+            <i class="fa-regular fa-pen-to-square"></i>
           <% end %>
         </li>
-        <li>
+        <li class="list-group-item">
           <%=  link_to user_path(current_user) do %>
-            My page
+            <i class="fa-regular fa-user"></i>
+          <% end %>
+        </li>
+        <li class="list-group-item">
+          <%=  link_to item_path(3) do %>
+            テスト
           <% end %>
         </li>
         <!--<li>-->
@@ -19,40 +25,69 @@
         <!--    <i class="fa-thin fa-heart"></i>-->
         <!--  <%# end %>-->
         <!--</li>-->
-        <!--<li>-->
-        <!--  <%#=  link_to books_path do %>-->
-          <!--<i class="fa-regular fa-cart-shopping"></i>カート-->
-          <%# end %>
-        <!--</li>-->
-        <li>
+        <li class="list-group-item">
+          <%=  link_to cart_items_path do %>
+          <i class="fa-solid fa-cart-shopping"></i>
+          <% end %>
+        </li>
+        <li class="list-group-item">
           <%= link_to destroy_user_session_path, method: :delete do %>
-            Log out
+            <i class="fa-solid fa-arrow-right-from-bracket"></i>
           <% end %>
         </li>
+
+      <% elsif admin_signed_in? %>
+        <li class="list-group-item">
+          <%= link_to admin_items_path do %>
+            商品一覧
+          <% end %>
+        </li>
+        <li class="list-group-item">
+          <%= link_to admin_users_path do %>
+            会員一覧
+          <% end %>
+        </li class="list-group-item">
+        <!--<li>-->
+          <%#= link_to admin_path do %>
+        <!--    注文履歴一覧-->
+        <!--  <%# end %>-->
+        <!--</li>-->
+        <!--<li>-->
+        <!--  <%#=  link_to admin_genres_path ,class: 'nav-link text-dark' do %>-->
+        <!--    ジャンル一覧-->
+        <!--  <%# end %>-->
+        <!--</li>-->
+        <li class="list-group-item">
+          <%= link_to destroy_admin_session_path, method: :delete do %>
+            <i class="fa-solid fa-arrow-right-from-bracket"></i>
+          <% end %>
+        </li>
+
       <% else %>
-        <li>
+        <li class="list-group-item">
           <%= link_to root_path do %>
-          Home
+          <i class="fa-solid fa-house"></i>
           <% end %>
         </li>
-        <li>
+        <li class="list-group-item">
           <%= link_to about_path do %>
-            About
+            <i class="fa-solid fa-hand-holding-heart"></i>
           <% end %>
         </li>
-        <li>
-          <%= link_to new_user_registration_path do %>
-            Sign up
-          <% end %>
-        </li>
-        <li>
-          <%= link_to new_user_session_path do %>
-            Log in
-          <% end %>
-        </li>
+        <!--<li>-->
+        <!--  <%#= link_to new_user_registration_path do %>-->
+        <!--    <i class="fa-solid fa-user-plus"></i>-->
+        <!--  <%# end %>-->
+        <!--</li>-->
+        <!--<li>-->
+        <!--  <%#= link_to new_user_session_path do %>-->
+        <!--    <i class="fa-solid fa-right-to-bracket"></i>-->
+        <!--  <%# end %>-->
+        <!--</li>-->
       <% end %>
       <%= render 'layouts/search' %>
       </ul>
+     </div>
     </div>
   </nav>
 </header>
