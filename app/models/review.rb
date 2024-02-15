@@ -6,7 +6,9 @@ class Review < ApplicationRecord
   has_many :favorites, dependent: :destroy
   has_many :comments, dependent: :destroy
   belongs_to :user
-  accepts_nested_attributes_for :items, allow_destroy: true
+  belongs_to :category
+
+  accepts_nested_attributes_for :reviews_items, allow_destroy: true
 
   def favorited_by?(user)
     favorites.exists?(user_id: user.id)

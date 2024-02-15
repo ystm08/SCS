@@ -20,7 +20,7 @@ class User::OrdersController < ApplicationController
     end
     @order.total_payment = any.sum
     @selected_address = "#{current_user.post_code} #{current_user.address} #{current_user.name}"
-    @order.status = 1
+    @order.status = 0
 
     if @order.save
       @cart_items.each do |cart_item|

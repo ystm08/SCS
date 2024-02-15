@@ -1,7 +1,8 @@
 class User::ReviewsController < ApplicationController
   def new
     @review = Review.new
-    @review_item = @review.items.build
+    @review_item = @review.reviews_items.build
+    @categories = Category.all
   end
 
   def create
@@ -15,7 +16,7 @@ class User::ReviewsController < ApplicationController
   end
 
   def index
-    @category = params(:category)
+    @category = params[:category]
     @reviews = Review.all
     if params[:category].present?
       case params[:category]
@@ -33,6 +34,7 @@ class User::ReviewsController < ApplicationController
 
   def show
     @review = Review.find(params[:id])
+    @cart_item = CartItem.new
     @comment = Comment.new
   end
 
@@ -40,9 +42,16 @@ class User::ReviewsController < ApplicationController
     @review = Review.find(params[:id])
   end
 
+  def update
+    review = Review.find(params[:id])
+    review.update(review_params)
+    redirect_to review_path(review.id)
+  end
+
   private
 
   def review_params
-    params.require(:review).permit(:review_image, :content)
+    params.require(:review).permit(:review_image, :content, :category, reviews_items_attributes: [:item_id, :_destroy])
   end
+
 end

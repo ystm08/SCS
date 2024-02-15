@@ -2,12 +2,17 @@
 
 <%= form_with model: @review do |f| %>
   <div class="form-group">
-    <%= f.label :review_image %><br>
+    <div>Upload goods image</div>
     <%= f.file_field :review_image, class: "form-control-file user_image", accept: 'image/*' %>
   </div>
-  <div>Goods選択フォーム</div>
+  <div>Select goods</div>
+  <div><%= f.fields_for :items do |t| %>
+    <%= render "item_fields", f: t %>
+  <% end %>
+  <%= link_to_add_association "追加", f, :items %>
+  </div>
   <div class="form-group">
-    <%= f.label :content %><br>
+    <div>Review goods</div>
     <%= f.text_area :content %>
   </div>
   <div class="form-group">
