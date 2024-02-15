@@ -1,0 +1,52 @@
+<h4>注文履歴詳細</h4>
+
+<table>
+  <tr>
+    <th>購入者</th>
+    <td><%= @order.user.name %></td>
+  </tr>
+  <tr>
+    <th>注文日</th>
+    <td><%= @order.created_at.strftime('%Y/%m/%d') %></td>
+  </tr>
+  <tr>
+    <th>配送先</th>
+    <td><%= @order.user.post_code %></td>
+  </tr>
+  <tr>
+    <th></th>
+    <td><%= @order.user.address %></td>
+  </tr>
+</table>
+<table>
+  <thead>
+    <tr>
+      <th>商品名</th>
+      <th>単価(税抜)</th>
+      <th>数量</th>
+      <th>小計</th>
+      <th>注文ステータス</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @order_details.each do |order_detail| %>
+    <tr>
+      <td><%= order_detail.item.name %></td>
+      <td><%= order_detail.item.price.to_s(:delimited) %></td>
+      <td><%= order_detail.amount %></td>
+      <td><%= (order_detail.item.price*order_detail.amount).to_s(:delimited) %></td>
+      <td>enum</td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+<table>
+  <tr>
+    <th>商品合計</th>
+    <td><%= @order.subtotal_without_tax.to_s(:delimited) %>円</td>
+  </tr>
+  <tr>
+    <th>請求金額(税込)</th>
+    <td><%= @order.total_payment.to_s(:delimited) %>円</td>
+  </tr>
+</table>

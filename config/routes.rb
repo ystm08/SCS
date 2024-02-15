@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     get 'top' => 'homes#top', as: 'top'
     resources :users, only: [:index, :show, :update]
     resources :items, only: [:index, :show, :new, :create, :edit, :update]
+    resources :orders
   end
 
   devise_for :users, controllers: {
