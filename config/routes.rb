@@ -32,7 +32,7 @@ Rails.application.routes.draw do
     patch  '/users/withdraw' => 'users#withdraw'
     delete "cart_items/destroy_all" => "cart_items#destroy_all"
     resources :users
-    resources :items
+    resources :items, only: [:show]
     resources :reviews do
       resource :favorite, only: [:create, :destroy]
       resources :comments, only: [:create, :destroy]

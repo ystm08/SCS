@@ -1,8 +1,9 @@
 class User::ReviewsController < ApplicationController
+  before_action :authenticate_user!
+  
   def new
     @review = Review.new
     @review_item = @review.reviews_items.build
-    @categories = Category.all
   end
 
   def create
@@ -16,16 +17,18 @@ class User::ReviewsController < ApplicationController
   end
 
   def index
-    @category = params[:category]
     @reviews = Review.all
     if params[:category].present?
       case params[:category]
       when 'fashion'
-        @reviews = @reviews.where(category: 'fashion')
+        @reviews = @reviews.where(category: "1")
+        @category = "Fashion"
       when 'nail'
-        @reviews = @reviews.where(category: 'nail')
+        @reviews = @reviews.where(category: "2")
+        @category = "Nail"
       when 'cosmetics'
-        @reviews = @reviews.where(category: 'cosmetics')
+        @reviews = @reviews.where(category: "3")
+        @category = "Cosmetics"
       end
     else
       @category = "Look Book"
@@ -51,7 +54,7 @@ class User::ReviewsController < ApplicationController
   private
 
   def review_params
-    params.require(:review).permit(:review_image, :content, :category, reviews_items_attributes: [:item_id, :_destroy])
+    params.require(:review).permit(:review_image, :content, :category_id, reviews_items_attributes: [:item_id, :_destroy])
   end
 
 end

@@ -1,9 +1,11 @@
 class User::UsersController < ApplicationController
+  before_action :authenticate_user!
   before_action :ensure_guest_user,only: [:edit]
 
   def show
     @user = User.find(params[:id])
     @reviews = current_user.reviews
+    @favorite_all = @user.reviews.inject(0) { |sum, review| sum + review.favorites.count }
   end
 
   def edit

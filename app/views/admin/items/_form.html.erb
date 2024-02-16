@@ -1,4 +1,4 @@
-<%= form_with model: item, url: '/admin/items', method: :post do |f| %>
+<%= form_with model: item, local:true do |f| %>
 <!--@item → item, @categories → categories-->
   <table class="table table-borderless">
     <tr>

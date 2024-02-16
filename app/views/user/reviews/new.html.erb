@@ -1,17 +1,2 @@
 <h4>Review Your Goods!!</h4>
-
-<%= form_with model: @review do |f| %>
-  <div>Upload goods image</div>
-  <div><%= f.file_field :review_image, accept: "image/*" %></div>
-  <div>Select goods</div>
-  <div><%= f.fields_for :reviews_items do |t| %>
-    <%= render "reviews_item_fields", f: t %>
-  <% end %>
-  <%= link_to_add_association "追加", f, :reviews_items %>
-  </div>
-  <div>Select category</div>
-  <div><%= f.collection_select :category_id, @categories, :id, :name, include_blank: "-- 選択してください --" %></div>
-  <div>Review goods</div>
-  <div><%= f.text_area :content %></div>
-  <div><%= f.submit "新規投稿" %></div>
-<% end %>
+<%= render 'form', review: @review %>

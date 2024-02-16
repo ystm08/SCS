@@ -1,4 +1,5 @@
 class User::OrdersController < ApplicationController
+  before_action :authenticate_user!
 
   def confirm
     @cart_items = CartItem.where(user_id: current_user.id)

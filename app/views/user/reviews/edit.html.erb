@@ -1,21 +1,2 @@
 <h4>Review edit</h4>
-
-<%= form_with model: @review do |f| %>
-  <div class="form-group">
-    <div>Upload goods image</div>
-    <%= f.file_field :review_image, class: "form-control-file user_image", accept: 'image/*' %>
-  </div>
-  <div>Select goods</div>
-  <div><%= f.fields_for :items do |t| %>
-    <%= render "item_fields", f: t %>
-  <% end %>
-  <%= link_to_add_association "追加", f, :items %>
-  </div>
-  <div class="form-group">
-    <div>Review goods</div>
-    <%= f.text_area :content %>
-  </div>
-  <div class="form-group">
-    <%= f.submit "変更する" %>
-  </div>
-<% end %>
+<%= render 'form', review: @review %>

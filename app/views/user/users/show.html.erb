@@ -1,7 +1,7 @@
 <div><%= image_tag @user.get_profile_image(100,100) %></div>
 
 <div><%= @user.user_name %>
-♡
+♡<%= @favorite_all %>
 </div>
 
 <% unless @user.guest_user? %>

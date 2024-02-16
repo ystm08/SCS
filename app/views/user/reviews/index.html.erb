@@ -1,7 +1,8 @@
-<%= @category %>
-
-<% @reviews.each do |review| %>
-  <div>
-    <%= image_tag url_for(review.review_image.variant(resize: "400x400")) %>
-  </div>
-<% end %>
+<div><%= @category %></div>
+<div>
+  <% @reviews.each do |review| %>
+    <%= link_to review_path(review.id) do %>
+    <%= image_tag review.get_review_image(400,400) %>
+    <% end %>
+  <% end %>
+</div>
