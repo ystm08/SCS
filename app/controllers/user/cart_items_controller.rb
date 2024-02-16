@@ -1,6 +1,6 @@
 class User::CartItemsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_cart_item, only: [:increase, :decrease, :destroy]
+  before_action :set_cart_item, only: [:destroy]
 
   def index
     @cart_items = current_user.cart_items

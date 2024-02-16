@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     get 'top' => 'homes#top', as: 'top'
     resources :users, only: [:index, :show, :update]
     resources :items, only: [:index, :show, :new, :create, :edit, :update]
-    resources :orders do
+    resources :orders, only: [:show] do
       member do
       patch :update_status
       end
@@ -26,23 +26,21 @@ Rails.application.routes.draw do
 
   scope module: :user do
     root "homes#top"
-    get 'search' => 'searches#search'
     get 'homes/about', as: 'about'
     get 'homes/latest', as: 'latest'
-    patch  '/users/withdraw' => 'users#withdraw'
+    get 'search' => 'searches#search'
     delete "cart_items/destroy_all" => "cart_items#destroy_all"
-    resources :users
+    resources :users, only: [:show, :edit, :update] do
+      member do
+        patch 'withdraw'
+      end
+    end
     resources :items, only: [:show]
     resources :reviews do
       resource :favorite, only: [:create, :destroy]
       resources :comments, only: [:create, :destroy]
     end
-    resources :cart_items, only: [:index, :create, :update, :destroy] do
-      member do
-        patch 'increase'
-        patch 'decrease'
-      end
-    end
+    resources :cart_items, only: [:index, :create, :update, :destroy]
     resources :orders, only: [:index, :create]
       patch :update_status
       post "orders/confirm" => "orders#confirm"

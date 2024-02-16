@@ -27,6 +27,11 @@
           <% end %>
         </li>
         <li class="list-group-item">
+          <%=  link_to orders_path(current_user) do %>
+          <i class="fa-solid fa-clock-rotate-left"></i>
+          <% end %>
+        </li>
+        <li class="list-group-item">
           <%= link_to destroy_user_session_path, method: :delete do %>
             <i class="fa-solid fa-arrow-right-from-bracket"></i>
           <% end %>
@@ -44,17 +49,12 @@
           <%= link_to admin_users_path do %>
             会員一覧
           <% end %>
-        </li class="list-group-item">
-        <!--<li>-->
-          <%#= link_to admin_path do %>
-        <!--    注文履歴一覧-->
-        <!--  <%# end %>-->
-        <!--</li>-->
-        <!--<li>-->
-        <!--  <%#=  link_to admin_genres_path ,class: 'nav-link text-dark' do %>-->
-        <!--    ジャンル一覧-->
-        <!--  <%# end %>-->
-        <!--</li>-->
+        </li>
+        <li class="list-group-item">
+          <%= link_to admin_top_path do %>
+            注文履歴一覧
+          <% end %>
+        </li>
         <li class="list-group-item">
           <%= link_to destroy_admin_session_path, method: :delete do %>
             <i class="fa-solid fa-arrow-right-from-bracket"></i>
