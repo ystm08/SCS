@@ -1,6 +1,6 @@
 class User::ReviewsController < ApplicationController
   before_action :authenticate_user!
-  
+
   def new
     @review = Review.new
     @review_item = @review.reviews_items.build
@@ -47,14 +47,17 @@ class User::ReviewsController < ApplicationController
 
   def update
     review = Review.find(params[:id])
-    review.update(review_params)
-    redirect_to review_path(review.id)
+    if review.update(review_params)
+      redirect_to review_path(review.id)
+    else
+      render :edit
+    end
   end
 
   private
 
   def review_params
-    params.require(:review).permit(:review_image, :content, :category_id, reviews_items_attributes: [:item_id, :_destroy])
+    params.require(:review).permit(:review_image, :content, :category_id, reviews_items_attributes: [:id, :item_id, :_destroy])
   end
 
 end

@@ -1,4 +1,4 @@
-<div><%= image_tag url_for(@review.review_image.variant(resize: "400x400")) %></div>
+<div><%= image_tag @review.get_review_image(400,400) %></div>
 <div>comment <%= @review.comments.count %>
 <% if @review.favorited_by?(current_user) %>
   <%= link_to review_favorite_path(@review), method: :delete do %>

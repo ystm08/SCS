@@ -9,6 +9,9 @@ class Review < ApplicationRecord
   belongs_to :user
   belongs_to :category
 
+  validates :content, presence: true
+  validates :review_image, presence: true
+
   accepts_nested_attributes_for :reviews_items, allow_destroy: true
 
   def favorited_by?(user)

@@ -1,5 +1,5 @@
 <h4>Profile edit</h4>
-
+<%= render 'layouts/errors', obj: @user %>
 <%= form_with model:@user, local:true do |f| %>
   <div class="form-group">
     <%= f.label :user_name, "Account name"%><br>

@@ -1,4 +1,4 @@
-<%= form_with model: item, local:true do |f| %>
+<%= form_with(model: item, url: item.persisted? ? admin_item_path(item) : admin_items_path, local: true, method: item.persisted? ? :patch : :post) do |f| %>
 <!--@item → item, @categories → categories-->
   <table class="table table-borderless">
     <tr>
@@ -23,8 +23,11 @@
     </tr>
     <tr>
       <td></td>
-      <td><%= f.submit submit_label, class: "btn btn-success" %></td>
-      <!--submit_labelはif文に変更できるなら。viewから消して_formにif文で編集か新規登録か-->
+      <% if f.object.new_record? %>
+      <td><%= f.submit "新規投稿", class: "btn btn-success" %></td>
+      <% else %>
+      <td><%= f.submit "編集", class: "btn btn-success" %></td>
+      <% end %>
     </tr>
   </table>
 <% end %>
