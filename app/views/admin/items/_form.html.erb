@@ -15,7 +15,7 @@
     </tr>
     <tr>
       <th>カテゴリー</th>
-      <td><%= f.collection_select :category_id, categories, :id, :name, include_blank: "-- 選択してください --" %></td>
+      <td><%= f.collection_select(:category_id, Category.all, :id, :name) %></td>
     </tr>
     <tr>
       <th>税抜価格</th>

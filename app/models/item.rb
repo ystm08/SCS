@@ -9,6 +9,11 @@ class Item < ApplicationRecord
   has_many :orders, through: :order_details
   belongs_to :category
 
+  validates :item_image, presence: true
+  validates :name, presence: true
+  validates :introduction, presence: true
+  validates :price, presence: true
+
   def add_tax_price
     (self.price * 1.10).round
   end
