@@ -1,41 +1,58 @@
-<h4>Cart item</h4>
- <table>
-   <thead>
-     <tr>
-       <th>商品名</th>
-       <th>単価</th>
-       <th>数量</th>
-       <th>小計</th>
-     </tr>
-   </thead>
-   <tbody>
-     <% @cart_items.each do |cart_item| %>
-     <tr>
-       <td><%= cart_item.item.name %></td>
-       <td><%= number_with_delimiter(cart_item.item.add_tax_price, delimiter: ',') %></td>
+<div class="cintainer">
+
+  <div class="row my-5">
+   <div class="mx-auto">
+    <h3><strong>Cart item</strong></h3>
+   </div>
+  </div>
+
+  <div class="row mb-5">
+   <div class="mx-auto">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>商品名</th>
+          <th>単価</th>
+          <th>数量</th>
+          <th>小計</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @cart_items.each do |cart_item| %>
+        <tr>
+          <td><%= cart_item.item.name %></td>
+          <td><%= number_with_delimiter(cart_item.item.add_tax_price, delimiter: ',') %>円</td>
+          <td>
+            <%= form_with model: cart_item, url: cart_item_path(cart_item.id), local:true do |f| %>
+            <%= f.hidden_field :item_id, value: cart_item.item.id %>
+            <%= f.select :amount, *[1..10] %>
+            <%= f.submit "変更" %>
+            <% end %>
+          </td>
+          <td>
+           <%= number_with_delimiter(cart_item.subtotal, delimiter: ',') %>円
+           <%= link_to "削除", cart_item_path(cart_item.id), method: :delete %>
+          </td>
+        </tr>
+        <% end %>
+        <tr>
+          <td></td>
+          <td></td>
+          <td>合計金額：</td>
+          <td><%= number_with_delimiter(@cart_items.sum { |cart_item| cart_item.subtotal }, delimiter: ',') %>円(税込)</td>
+        </tr>
+      </tbody>
+      <tbody>
        <td>
-         <%= form_with model: cart_item, url: cart_item_path(cart_item.id), local:true do |f| %>
-         <%= f.hidden_field :item_id, value: cart_item.item.id %>
-         <%= f.select :amount, *[1..10] %>
-         <%= f.submit "変更" %>
-         <% end %>
+        <%= link_to "買い物を続ける", latest_path %>
+        <%= link_to "カートの中身を空にする", cart_items_destroy_all_path, method: :delete, data: { confirm: "本当に空にしますか？"} %>
        </td>
-       <td><%= cart_item.subtotal %></td>
-       <td><%= link_to "削除", cart_item_path(cart_item.id), method: :delete %></td>
-     </tr>
-     <% end %>
-     <tr>
        <td></td>
-       <td></td>
-       <td></td>
-       <td>合計金額：</td>
-       <td><%= number_with_delimiter(@cart_items.sum { |cart_item| cart_item.subtotal }, delimiter: ',') %>円(税込)</td>
-     </tr>
-   </tbody>
- </table>
- <div>
-   <%= link_to "買い物を続ける", latest_path %>
-   <%= link_to "カートの中身を空にする", cart_items_destroy_all_path, method: :delete, data: { confirm: "本当に空にしますか？"} %>
-   送料は無料です
-   <%= link_to "購入手続きへ進む", orders_confirm_path, method: :post %>
- </div>
+       <td>送料は無料です</td>
+       <td><%= link_to "購入手続きへ進む", orders_confirm_path, method: :post %></td>
+      </tbody>
+    </table>
+   </div>
+  </div>
+
+</div>

@@ -1,28 +1,43 @@
-<h4>Order history</h4>
+<div class="container">
 
-<table>
-  <thead>
-    <tr>
-      <th>注文日</th>
-      <th>配送先</th>
-      <th>注文商品</th>
-      <th>支払い金額</th>
-      <th>ステータス</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @orders.each do |order| %>
-    <tr>
-      <td><%= order.created_at.strftime('%Y/%m/%d') %></td>
-      <td><%= current_user.post_code %><%= current_user.address %></td>
-      <td>
-        <% order.order_details.each do |order_detail| %>
-          <%= order_detail.item.name %>
-        <% end %>
-      </td>
-      <td><%= order.total_payment %></td>
-      <td><%= I18n.t("enums.order.status.#{order.status}") %></td>
-    </tr>
-    <% end %>
-  </tbody>
-</table>
+  <div class="row my-5">
+    <div class="mx-auto">
+      <h3><strong>Order history</strong></h3>
+    </div>
+  </div>
+
+  <div class="row mb-5">
+    <div class="mx-auto">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>注文日</th>
+            <th>配送先</th>
+            <th>注文商品</th>
+            <th>支払い金額</th>
+            <th>ステータス</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @orders.each do |order| %>
+          <tr>
+            <td><%= order.created_at.strftime('%Y/%m/%d') %></td>
+            <td>
+              〒<%= current_user.post_code %></br>
+              <%= current_user.address %>
+            </td>
+            <td>
+              <% order.order_details.each do |order_detail| %>
+                <div><%= order_detail.item.name %></div>
+              <% end %>
+            </td>
+            <td><%= number_with_delimiter(order.total_payment, delimiter: ',') %>円</td>
+            <td><%= I18n.t("enums.order.status.#{order.status}") %></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</div>

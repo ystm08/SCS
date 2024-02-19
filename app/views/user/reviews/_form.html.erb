@@ -1,16 +1,26 @@
-<!--@review → review-->
-<%= form_with model: review, local:true do |f| %>
-  <div>Upload goods image</div>
-  <div><%= f.file_field :review_image, accept: "image/*" %></div>
-  <div>Select goods</div>
-  <div><%= f.fields_for :reviews_items do |t| %>
-    <%= render "reviews_item_fields", f: t %>
-  <% end %>
-  <%= link_to_add_association "追加", f, :reviews_items %>
+<div class="container">
+  <!--@review → review-->
+  <%= form_with model: review, local:true do |f| %>
+  <div class="row mb-5">
+    <div class="mx-auto">
+      <div>Upload goods image</div>
+      <div><%= f.file_field :review_image, accept: "image/*" %></div>
+      <div>Select goods</div>
+      <div><%= f.fields_for :reviews_items do |t| %>
+      <%= render "reviews_item_fields", f: t %>
+      <% end %>
+      <%= link_to_add_association "Goodsを追加する", f, :reviews_items %>
+      <div>Select category</div>
+      <div><%= f.collection_select(:category_id, Category.all, :id, :name) %></div>
+      <div>Review goods</div>
+      <div><%= f.text_area :content, size: "40" %></div>
+      <% if f.object.new_record? %>
+        <div><%= f.submit "新規投稿" %></div>
+      <% else %>
+        <div><%= f.submit "編集" %></div>
+      <% end %>
+      </div>
+    </div>
   </div>
-  <div>Select category</div>
-  <div><%= f.collection_select(:category_id, Category.all, :id, :name) %></div>
-  <div>Review goods</div>
-  <div><%= f.text_area :content %></div>
-  <div><%= f.submit "投稿" %></div>
-<% end %>
+  <% end %>
+</div>

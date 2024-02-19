@@ -46,9 +46,9 @@ class User::ReviewsController < ApplicationController
   end
 
   def update
-    review = Review.find(params[:id])
-    if review.update(review_params)
-      redirect_to review_path(review.id)
+    @review = Review.find(params[:id])
+    if @review.update(review_params)
+      redirect_to review_path(@review.id)
     else
       render :edit
     end

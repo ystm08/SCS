@@ -1,3 +1,13 @@
-<h4>Review Your Goods!!</h4>
-<%= render 'layouts/errors', obj: @review %>
-<%= render 'form', review: @review %>
+<div class="container">
+  <div class="row my-5">
+    <div class="mx-auto">
+      <h3><strong>Review Your Goods!!</strong></h3>
+    </div>
+  </div>
+  <div class="row">
+    <div class="mx-auto">
+      <%= render 'layouts/errors', obj: @review %>
+    </div>
+  </div>
+  <%= render 'form', review: @review %>
+</div>
