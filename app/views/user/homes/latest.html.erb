@@ -1,7 +1,13 @@
-<div>
-  <% @latest_reviews.each do |review| %>
+<div class="container">
+  <div class="row">
+    <div class="flex">
+    <% @latest_reviews.each do |review| %>
+    <div class="latest_img">
     <%= link_to review_path(review.id) do %>
-    <%= image_tag review.get_review_image(200,1000) %>
+      <%= image_tag review.get_review_image(200,550) %>
     <% end %>
+    </div>
   <% end %>
+  </div>
+  </div>
 </div>

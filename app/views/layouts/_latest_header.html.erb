@@ -1,41 +1,52 @@
 <header>
-  <ul class="list-group list-group-horizontal">
-  <a class="navbar-brand" href="/homes/latest"><%= image_tag "scs2.png", :size => '50x20' %></a>
-  <li class="list-group-item">
-    <%= link_to new_review_path do %>
-      <i class="fa-regular fa-pen-to-square"></i>
-    <% end %>
-  </li>
-  <li class="list-group-item">
-    <%=  link_to user_path(current_user) do %>
-      <i class="fa-regular fa-user"></i>
-    <% end %>
-  </li>
-  <!--<li>-->
-  <!--  <%#=  link_to books_path do %>-->
-  <!--    <i class="fa-thin fa-heart"></i>-->
-  <!--  <%# end %>-->
-  <!--</li>-->
-  <li class="list-group-item">
-    <%=  link_to cart_items_path do %>
-    <i class="fa-solid fa-cart-shopping"></i>
-    <% end %>
-  </li>
-  <li class="list-group-item">
-    <%=  link_to orders_path(current_user) do %>
-    <i class="fa-solid fa-clock-rotate-left"></i>
-    <% end %>
-  </li>
-  <li class="list-group-item">
-    <%= link_to destroy_user_session_path, method: :delete do %>
-      <i class="fa-solid fa-arrow-right-from-bracket"></i>
-    <% end %>
-  </li>
-  <%= render 'layouts/search' %>
-  </ul>
-  <div><%= link_to 'all', reviews_path %></div>
-  <div><%= link_to 'fashion', reviews_path(category: 'fashion') %></div>
-  <div><%= link_to 'nail', reviews_path(category: 'nail') %></div>
-  <div><%= link_to 'cosmetics', reviews_path(category: 'cosmetics') %></div>
-  <div><%= link_to 'about', about_path %></div>
+  <div class="container">
+    <div class="row mt-3">
+
+      <div class="col-6">
+        <ul class="list-group list-group-horizontal">
+          <a class="navbar-brand" href="/homes/latest"><%= image_tag "scs2.png", :size => '50x20' %></a>
+          <li class="list-group-item">
+            <%= link_to new_review_path do %>
+              <i class="fa-regular fa-pen-to-square"></i>
+            <% end %>
+          </li>
+          <li class="list-group-item">
+            <%=  link_to user_path(current_user) do %>
+              <i class="fa-regular fa-user"></i>
+            <% end %>
+          </li>
+          <!--<li>-->
+          <!--  <%#=  link_to books_path do %>-->
+          <!--    <i class="fa-thin fa-heart"></i>-->
+          <!--  <%# end %>-->
+          <!--</li>-->
+          <li class="list-group-item">
+            <%=  link_to cart_items_path do %>
+            <i class="fa-solid fa-cart-shopping"></i>
+            <% end %>
+          </li>
+          <li class="list-group-item">
+            <%=  link_to orders_path(current_user) do %>
+            <i class="fa-solid fa-clock-rotate-left"></i>
+            <% end %>
+          </li>
+          <li class="list-group-item">
+            <%= link_to destroy_user_session_path, method: :delete do %>
+              <i class="fa-solid fa-arrow-right-from-bracket"></i>
+            <% end %>
+          </li>
+          <%= render 'layouts/search' %>
+        </ul>
+      </div>
+
+      <div class="col-6">
+        <h4><%= link_to 'all', reviews_path %></h4>
+        <h4><%= link_to 'fashion', reviews_path(category: 'fashion') %></h4>
+        <h4><%= link_to 'nail', reviews_path(category: 'nail') %></h4>
+        <h4><%= link_to 'cosmetics', reviews_path(category: 'cosmetics') %></h4>
+        <h4><%= link_to 'about', about_path %></h4>
+      </div>
+
+    </div>
+  </div>
 </header>
