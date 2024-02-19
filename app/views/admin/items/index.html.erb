@@ -1,21 +1,43 @@
-<h4>商品一覧</h4>
-<%= link_to "商品追加", new_admin_item_path %>
-<table>
-  <tr>
-    <th>商品ID</th>
-    <th>商品名</th>
-    <th>税抜価格</th>
-    <th>ジャンル</th>
-  </tr>
-  <tbody>
-    <% @items.each do |item| %>
-      <tr>
-        <td><%= item.id %></td>
-        <td><%= link_to item.name, admin_item_path(item) %></td>
-        <td><%= number_with_delimiter(item.price, delimiter: ',') %></td>
-        <td><%= item.category.name %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-<%= paginate @items %>
+<div class="container">
+
+  <div class="row my-5">
+    <div class="mx-auto">
+      <h3><strong>商品一覧</strong></h3>
+    </div>
+    <%= link_to "商品追加", new_admin_item_path %>
+  </div>
+
+  <div class="row">
+    <div class="mx-auto">
+      <table class="table">
+        <tr>
+          <th>商品ID</th>
+          <th>商品名</th>
+          <th>税抜価格</th>
+          <th>ジャンル</th>
+        </tr>
+        <tbody class="table-borderless">
+          <% @items.each do |item| %>
+            <tr>
+              <td><%= item.id %></td>
+              <td><%= link_to item.name, admin_item_path(item) %></td>
+              <td><%= number_with_delimiter(item.price, delimiter: ',') %></td>
+              <td><%= item.category.name %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="mx-auto">
+      <%= paginate @items %>
+    </div>
+  </div>
+
+</div>
+
+
+
+

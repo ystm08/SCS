@@ -1,3 +1,7 @@
-<h4>商品新規登録</h4>
-<%= render 'layouts/errors', obj: @item %>
-<%= render 'form',item: @item, categories: @categories %>
+<div class="container">
+  <div class="row my-5">
+    <h3><strong>商品新規登録</strong></h3>
+    <%= render 'layouts/errors', obj: @item %>
+    <%= render 'form',item: @item, categories: @categories %>
+  </div>
+</div>

@@ -1,15 +1,31 @@
-<h2>Admin login</h2>
-<h4>管理者ログイン</h4>
+<div class="container my-5">
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div>
-    <%= f.email_field :email, autofocus: true, autocomplete: "email", :placeholder =>"メールアドレス" %>
-  </div>
-  <div>
-    <%= f.password_field :password, autocomplete: "current-password", :placeholder =>"パスワード" %>
+  <div class="row">
+    <div>
+      <h3>Admin login</h3>
+    </div>
   </div>
 
-  <div class="actions">
-    <%= f.submit "ログインする" %>
+  <div class="row">
+    <div>管理者ログイン</div>
   </div>
-<% end %>
+
+  <div class="row">
+    <div class="mx-auto">
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <div class="m-3">
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", :placeholder =>"メールアドレス", size: "40" %>
+        </div>
+        <div class="m-3">
+          <%= f.password_field :password, autocomplete: "current-password", :placeholder =>"パスワード", size: "40" %>
+        </div>
+        <div class="m-3">
+          <div class="actions">
+            <%= f.submit "ログインする" %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+</div>

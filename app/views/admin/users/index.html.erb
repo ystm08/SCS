@@ -1,23 +1,40 @@
-<h4>会員一覧</h4>
-<table>
-  <thead>
-    <tr>
-      <th>会員ID</th>
-      <th>氏名</th>
-      <th>メールアドレス</th>
-      <th>ステータス</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @users.each do |user| %>
-    <tr>
-      <td><%= user.id %></td>
-      <td><%=link_to user.name, admin_user_path(user.id) %></td>
-      <td><%= user.email %></td>
-      <td><%= user.user_status %></td>
-    </tr>
-    <% end %>
-  </tbody>
-</table>
+<div class="container">
 
-<div><%= paginate @users %></div>
+  <div class="row my-5">
+    <div class="mx-auto">
+      <h3><strong>会員一覧</strong></h3>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="mx-auto">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>会員ID</th>
+            <th>氏名</th>
+            <th>メールアドレス</th>
+            <th>ステータス</th>
+          </tr>
+        </thead>
+        <tbody class="table-borderless">
+          <% @users.each do |user| %>
+          <tr>
+            <td><%= user.id %></td>
+            <td><%=link_to user.name, admin_user_path(user.id) %></td>
+            <td><%= user.email %></td>
+            <td><%= user.user_status %></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="mx-auto">
+      <div><%= paginate @users %></div>
+    </div>
+  </div>
+
+</div>
