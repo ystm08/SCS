@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   namespace :admin do
     get 'top' => 'homes#top', as: 'top'
     resources :users, only: [:index, :show, :update]
-    resources :items, only: [:index, :show, :new, :create, :edit, :update]
+    resources :items
     resources :orders, only: [:show] do
       member do
       patch :update_status

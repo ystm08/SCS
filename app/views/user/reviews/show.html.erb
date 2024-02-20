@@ -12,9 +12,8 @@
 </div>
 <div><%= @review.content %></div>
 <% if @review.user == current_user %>
-  <%= link_to edit_review_path(@review) do %>
-    edit
-  <% end %>
+  <%= link_to "編集", edit_review_path(@review) %>
+  <%= link_to "削除", review_path(@review.id), method: :delete, "data-confirm" => "本当に削除しますか？" %>
 <% end %>
 <div>Category: <%= @review.category.name %></div>
 <div>おすすめ商品</div>

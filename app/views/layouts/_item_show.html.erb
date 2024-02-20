@@ -7,6 +7,7 @@
     </div>
     <% if admin_signed_in? %>
     <%= link_to "編集", edit_admin_item_path %>
+    <%= link_to "削除", admin_item_path(item.id), method: :delete, "data-confirm" => "本当に削除しますか？" %>
     <% end %>
   </div>
 
