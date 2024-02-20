@@ -1,0 +1,7 @@
+<!--@review → review, @comment → comment-->
+<div>
+  <%= form_with model: [review, comment], local: false do |f| %>
+    <%= f.text_field :content, id: "comment_textfield" %>
+    <%= f.submit "送信" %>
+  <% end %>
+</div>

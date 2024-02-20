@@ -1,0 +1,2 @@
+$('#review-comments').html("<%= j(render 'user/comments/show', review: @review) %>");
+$('#comment_count').html("<%= @review.comments.count %>");
