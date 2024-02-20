@@ -1,32 +1,58 @@
-<div><%= image_tag @review.get_review_image(400,400) %></div>
-<div>comment <span id="comment_count"><%= @review.comments.count %></span></div>
-<div id="favorite_buttons_<%= @review.id %>"><%= render "user/favorites/favorite", review: @review %></div>
-<div><%= @review.content %></div>
-<% if @review.user == current_user %>
-  <%= link_to "編集", edit_review_path(@review) %>
-  <%= link_to "削除", review_path(@review.id), method: :delete, "data-confirm" => "本当に削除しますか？" %>
-<% end %>
-<div>Category: <%= @review.category.name %></div>
-<div>おすすめ商品</div>
-<% @review.items.each do |item| %>
-<div>
-  <%= link_to item_path(item.id) do %>
-    <%= item.name %>
-  <% end %>
-  ¥<%= item.price %>
-  <%= form_with model: @cart_item do |f| %>
-    <%= f.hidden_field :item_id, :value => item.id %>
-    <%= f.select :amount, *[1..10] %>
-    <%= button_tag type: "submit", class: "btn btn-default" do %>
-    <i class="fa-solid fa-cart-shopping"></i>
-    <% end %>
-  <% end %>
-</div>
-<% end %>
+<div class="container">
 
-<div id="comment_form">
-  <%= render "user/comments/form" , { review: @review , comment: @comment } %>
-</div>
-<div id="review-comments">
-  <%= render "user/comments/show" , { review: @review, comment: @comment } %>
+  <div class="row">
+
+    <div class="col-7">
+      <div class="row"><%= image_tag @review.get_review_image(500,500) %>　</div>
+      <div class="row">
+        comment:<span id="comment_count"><%= @review.comments.count %>　</span>
+        <div id="favorite_buttons_<%= @review.id %>"><%= render "user/favorites/favorite", review: @review %></div>
+      </div>
+    </div>
+
+    <div class="col-5">
+      <div class="row">
+        <%= @review.content %>
+      </div>
+      <div class="row my-3">
+        <p>Category：<%= @review.category.name %></p>
+        <% if @review.user == current_user %>
+          <%= link_to "編集", edit_review_path(@review) %>
+          <%= link_to "削除", review_path(@review.id), method: :delete, "data-confirm" => "本当に削除しますか？" %>
+        <% end %>
+      </div>
+      <div class="row">Review Goods</div>
+      <% @review.items.each do |item| %>
+        <div class="row">
+          <%= link_to item_path(item.id) do %>
+            <%= item.name %>
+          <% end %>
+          ¥<%= item.price %>
+          <%= form_with model: @cart_item do |f| %>
+            <%= f.hidden_field :item_id, :value => item.id %>
+            　<%= f.select :amount, *[1..10] %>
+            <%= button_tag type: "submit", class: "btn btn-default" do %>
+            <i class="fa-solid fa-cart-shopping"></i>
+            <% end %>
+          <% end %>
+        </div>
+        <% end %>
+    </div>
+  </div>
+
+  <div class="row my-4">
+    <div class="mx-auto">
+      <div id="comment_form">
+        <%= render "user/comments/form" , { review: @review , comment: @comment } %>
+      </div>
+    </div>
+  </div>
+  <div class="row mb-5">
+    <div class="mx-auto">
+      <div id="review-comments">
+        <%= render "user/comments/show" , { review: @review, comment: @comment } %>
+      </div>
+    </div>
+  </div>
+
 </div>

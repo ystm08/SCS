@@ -1,8 +1,21 @@
-<div><%= @category %></div>
-<div>
-  <% @reviews.each do |review| %>
+<div class="container">
+
+  <div class="row my-5">
+    <div class="mx-auto">
+      <h3><strong><%= @category %></strong></h3>
+    </div>
+  </div>
+
+  <div class="row">
+    <% @reviews.each do |review| %>
     <%= link_to review_path(review.id) do %>
     <%= image_tag review.get_review_image(400,400) %>
     <% end %>
   <% end %>
+  </div>
+
+  <div class="row">
+    <%= paginate @reviews %>
+  </div>
+
 </div>

@@ -17,7 +17,7 @@ class User::ReviewsController < ApplicationController
   end
 
   def index
-    @reviews = Review.all
+    @reviews = Review.page(params[:page]).per(8)
     if params[:category].present?
       case params[:category]
       when 'fashion'

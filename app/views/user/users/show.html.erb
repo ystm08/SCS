@@ -1,19 +1,37 @@
-<div><%= image_tag @user.get_profile_image(100,100) %></div>
+<div class="container">
 
-<div><%= @user.user_name %>
-♡<%= @favorite_all %>
+  <div class="row my-5">
+    <div class="col-6">
+      <%= image_tag @user.get_profile_image(100,100) %>
+    </div>
+    <div class="col-6">
+      <div class="row">
+        <%= @user.user_name %>　♡<%= @favorite_all %>
+      </div>
+      <div class="row">
+        <% unless @user.guest_user? %>
+          <div>
+            <%= link_to "プロフィールを編集", edit_user_path %>
+          </div>
+        <% end %>
+      </div>
+      <div class="row">
+        <%= @user.introduction %>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <% @reviews.each do |review| %>
+      <%= link_to review_path(review.id) do %>
+      <%= image_tag review.get_review_image(300,300) %>
+      <% end %>
+    <% end %>
+  </div>
+
+  <div class="row">
+    <div class="mx-auto">
+      <%= paginate @reviews %>
+    </div>
+  </div>
 </div>
-
-<% unless @user.guest_user? %>
-<div>
-  <%= link_to "プロフィールを編集", edit_user_path %>
-</div>
-<% end %>
-
-<div><%= @user.introduction %></div>
-
-<% @reviews.each do |review| %>
-  <%= link_to review_path(review.id) do %>
-  <%= image_tag review.get_review_image(300,300) %>
-  <% end %>
-<% end %>
