@@ -33,6 +33,7 @@ Rails.application.routes.draw do
     resources :users, only: [:show, :edit, :update] do
       member do
         patch 'withdraw'
+        get 'favorites'
       end
     end
     resources :items, only: [:show]

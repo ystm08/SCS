@@ -16,11 +16,11 @@
             <i class="fa-regular fa-user"></i>
           <% end %>
         </li>
-        <!--<li>-->
-        <!--  <%#=  link_to books_path do %>-->
-        <!--    <i class="fa-thin fa-heart"></i>-->
-        <!--  <%# end %>-->
-        <!--</li>-->
+        <li class="list-group-item">
+          <%=link_to favorites_user_path(current_user) do %>
+            <i class="fa-regular fa-heart"></i>
+          <% end %>
+        </li>
         <li class="list-group-item">
           <%=  link_to cart_items_path do %>
           <i class="fa-solid fa-cart-shopping"></i>
