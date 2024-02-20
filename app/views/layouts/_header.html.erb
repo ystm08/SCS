@@ -5,7 +5,7 @@
 
       <ul class="list-group list-group-horizontal">
       <% if user_signed_in? %>
-        <a class="navbar-brand" href="/homes/latest"><%= image_tag "scs2.png", :size => '50x20' %></a>
+        <!--<a class="navbar-brand" href="/homes/latest"><%#= image_tag "scs2.png", :size => '50x20' %></a>-->
         <li class="list-group-item">
           <%= link_to new_review_path do %>
             <i class="fa-regular fa-pen-to-square"></i>
@@ -68,16 +68,7 @@
             <i class="fa-solid fa-hand-holding-heart"></i>
           <% end %>
         </li>
-        <!--<li>-->
-        <!--  <%#= link_to new_user_registration_path do %>-->
-        <!--    <i class="fa-solid fa-user-plus"></i>-->
-        <!--  <%# end %>-->
-        <!--</li>-->
-        <!--<li>-->
-        <!--  <%#= link_to new_user_session_path do %>-->
-        <!--    <i class="fa-solid fa-right-to-bracket"></i>-->
-        <!--  <%# end %>-->
-        <!--</li>-->
+
       <% end %>
       </ul>
      </div>
