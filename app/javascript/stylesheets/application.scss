@@ -1,5 +1,6 @@
 @use '~bootstrap/scss/bootstrap';
 
+// about画面
 .about-container {
   width: 100%;
 }
@@ -29,7 +30,56 @@
   margin:0;
 }
 
+// latest画面
 .latest_container {
   margin-left: 25px;
   margin-right: 25px;
 }
+
+// user_session画面
+.form-color {
+  color: white;
+  background-color: grey;
+}
+
+.session-submit {
+  font-size: 14px;
+  color: white;
+  background-color: black;
+  padding: 5px 135px;
+  border-color: black;
+}
+
+.session-submit:hover {
+  background-color: grey;
+  border-color: gray;
+}
+
+.session-link {
+  font-size: 14px;
+  color: white;
+  padding: 7px 95px;
+  background-color: grey;
+  border-radius: 3px;
+}
+
+.session-link:hover {
+  color: white;
+  background-color: black;
+  border-color: white;
+}
+
+.session-new {
+  font-size: 14px;
+  color: white;
+  padding: 7px 135px;
+  background-color: black;
+  border-radius: 3px;
+}
+
+.session-new:hover {
+  color: white;
+  background-color: grey;
+  border-color: white;
+}
+

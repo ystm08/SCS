@@ -25,7 +25,8 @@
     <div class="mx-auto">
       <div class="m-3">
           <div class="actions">
-            <%= f.submit "ログインする" %>
+            <%= submit_tag "ログインする", class: "btn btn-primary session-submit" %>
+            <%#= f.submit "ログインする" %>
           </div>
         </div>
     </div>
@@ -34,7 +35,7 @@
 
   <div class="row">
     <div class="mx-auto">
-      <%= link_to "ゲストとしてログインする", users_guest_sign_in_path, method: :post %>
+      <%= link_to "ゲストとしてログインする", users_guest_sign_in_path, class: "session-link", method: :post %>
     </div>
   </div>
   <div class="row mt-5">
