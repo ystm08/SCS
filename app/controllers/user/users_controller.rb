@@ -4,7 +4,7 @@ class User::UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @reviews = current_user.reviews.page(params[:page]).per(8)
+    @reviews = @user.reviews.page(params[:page]).per(8)
     @favorite_all = @user.reviews.inject(0) { |sum, review| sum + review.favorites.count }
   end
 
@@ -32,7 +32,7 @@ class User::UsersController < ApplicationController
   def favorites
     @user = User.find(params[:id])
     favorites = Favorite.where(user_id: @user.id).pluck(:review_id)
-    @favorite_review = Review.find(favorites)
+    @favorite_review = Review.where(id: favorites).page(params[:page]).per(8)
   end
 
 

@@ -29,13 +29,7 @@
   margin:0;
 }
 
-.flex{
-  display: flex;
-  justify-content: space-around;
-}
-
-.latest_img {
-  width: 200px;
-  height: 550px;
-  object-fit: cover;
+.latest_container {
+  margin-left: 25px;
+  margin-right: 25px;
 }

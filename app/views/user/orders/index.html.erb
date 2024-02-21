@@ -28,7 +28,11 @@
             </td>
             <td>
               <% order.order_details.each do |order_detail| %>
-                <div><%= order_detail.item.name %></div>
+                <% if order_detail.item.present? %>
+                  <div><%= order_detail.item.name %></div>
+                <% else %>
+                  <div>商品が削除されました</div>
+                <% end %>
               <% end %>
             </td>
             <td><%= number_with_delimiter(order.total_payment, delimiter: ',') %>円</td>

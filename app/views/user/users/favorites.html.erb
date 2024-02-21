@@ -1,6 +1,22 @@
-<div>いいね一覧</div>
-<% @favorite_review.each do |review|%>
-  <%= link_to review_path(review.id) do %>
-    <%= image_tag review.get_review_image(300,300) %>
-  <% end %>
-<% end %>
+<div class="container">
+
+  <div class="row my-5">
+    <div class="mx-auto">
+      <h3><strong>Favorite</strong></h3>
+    </div>
+  </div>
+
+  <div class="row">
+    <% @favorite_review.each do |review|%>
+      <%= link_to review_path(review.id) do %>
+        <%= image_tag review.get_review_image(300,300) %>
+      <% end %>
+    <% end %>
+  </div>
+
+  <div class="row">
+    <div class="mx-auto">
+      <%= paginate @favorite_review %>
+    </div>
+  </div>
+</div>

@@ -5,67 +5,49 @@
 
       <ul class="list-group list-group-horizontal">
       <% if user_signed_in? %>
-        <!--<a class="navbar-brand" href="/homes/latest"><%#= image_tag "scs2.png", :size => '50x20' %></a>-->
-        <li class="list-group-item">
+        <a class="navbar-brand" href="/homes/latest"><%= image_tag "scs2.png", :size => '50x20' %></a>
+        <li class="list-group-item border-0">
           <%= link_to new_review_path do %>
-            <i class="fa-regular fa-pen-to-square"></i>
+            <i class="fa-regular fa-pen-to-square" style="color: black;"></i>
           <% end %>
         </li>
-        <li class="list-group-item">
+        <li class="list-group-item border-0">
           <%=  link_to user_path(current_user) do %>
-            <i class="fa-regular fa-user"></i>
+            <i class="fa-regular fa-user" style="color: black;"></i>
           <% end %>
         </li>
-        <li class="list-group-item">
+        <li class="list-group-item border-0">
           <%=link_to favorites_user_path(current_user) do %>
-            <i class="fa-regular fa-heart"></i>
+            <i class="fa-regular fa-heart" style="color: black;"></i>
           <% end %>
         </li>
-        <li class="list-group-item">
+        <li class="list-group-item border-0">
           <%=  link_to cart_items_path do %>
-          <i class="fa-solid fa-cart-shopping"></i>
-          <% end %>
-        </li>
-        <li class="list-group-item">
-          <%=  link_to orders_path(current_user) do %>
-          <i class="fa-solid fa-clock-rotate-left"></i>
-          <% end %>
-        </li>
-        <li class="list-group-item">
-          <%= link_to destroy_user_session_path, method: :delete do %>
-            <i class="fa-solid fa-arrow-right-from-bracket"></i>
+          <i class="fa-solid fa-cart-shopping" style="color: black;"></i>
           <% end %>
         </li>
         <%= render 'layouts/search' %>
 
       <% elsif admin_signed_in? %>
         <a class="navbar-brand" href="/admin/top"><%= image_tag "scs2.png", :size => '50x20' %></a>
-        <li class="list-group-item">
-          <%= link_to admin_items_path do %>
-            商品一覧
-          <% end %>
+        <li class="list-group-item border-0">
+          <%= link_to '商品一覧', admin_items_path, style: "color: black;" %>
         </li>
-        <li class="list-group-item">
-          <%= link_to admin_users_path do %>
-            会員一覧
-          <% end %>
+        <li class="list-group-item border-0">
+          <%= link_to '会員一覧', admin_users_path, style: "color: black;" %>
         </li>
-        <li class="list-group-item">
-          <%= link_to admin_top_path do %>
-            注文履歴一覧
-          <% end %>
+        <li class="list-group-item border-0">
+          <%= link_to '注文履歴一覧', admin_top_path, style: "color: black;" %>
         </li>
-        <li class="list-group-item">
-          <%= link_to destroy_admin_session_path, method: :delete do %>
-            <i class="fa-solid fa-arrow-right-from-bracket"></i>
-          <% end %>
+        <li class="list-group-item border-0">
+          <%= link_to 'ログアウト', destroy_admin_session_path, style: "color: black;", method: :delete %>
         </li>
 
       <% else %>
         <a class="navbar-brand" href="/"><%= image_tag "scs2.png", :size => '50x20' %></a>
-        <li class="list-group-item">
+        <li class="list-group-item border-0">
           <%= link_to about_path do %>
-            <i class="fa-solid fa-hand-holding-heart"></i>
+            <i class="fa-solid fa-hand-holding-heart" style="color: black;"></i>
           <% end %>
         </li>
 

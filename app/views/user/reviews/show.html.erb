@@ -1,6 +1,6 @@
 <div class="container">
 
-  <div class="row">
+  <div class="row my-5">
 
     <div class="col-7">
       <div class="row"><%= image_tag @review.get_review_image(500,500) %>　</div>
@@ -12,19 +12,24 @@
 
     <div class="col-5">
       <div class="row">
-        <%= @review.content %>
+        <%= simple_format(@review.content) %>
+      </div>
+      <div class="row">
+        <%= link_to user_path(@review.user), style: "color: black;" do %>
+        @<%= @review.user.user_name %>
+        <% end %>
       </div>
       <div class="row my-3">
         <p>Category：<%= @review.category.name %></p>
         <% if @review.user == current_user %>
-          <%= link_to "編集", edit_review_path(@review) %>
-          <%= link_to "削除", review_path(@review.id), method: :delete, "data-confirm" => "本当に削除しますか？" %>
+          <%= link_to "編集", edit_review_path(@review), style: "color: gray;" %>
+          <%= link_to "削除", review_path(@review.id), style: "color: gray;", method: :delete, "data-confirm" => "本当に削除しますか？" %>
         <% end %>
       </div>
       <div class="row">Review Goods</div>
       <% @review.items.each do |item| %>
         <div class="row">
-          <%= link_to item_path(item.id) do %>
+          <%= link_to item_path(item.id), style: "color: gray;" do %>
             <%= item.name %>
           <% end %>
           ¥<%= item.price %>

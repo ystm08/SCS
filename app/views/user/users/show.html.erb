@@ -2,21 +2,31 @@
 
   <div class="row my-5">
     <div class="col-6">
-      <%= image_tag @user.get_profile_image(100,100) %>
+      <%= image_tag @user.get_profile_image(200,200) %>
     </div>
     <div class="col-6">
       <div class="row">
-        <%= @user.user_name %>　♡<%= @favorite_all %>
+        <h3><%= @user.user_name %>　♡<%= @favorite_all %></h3>
+      </div>
+    <% unless @user.guest_user? %>
+    <% if @user == current_user %>
+      <div class="row">
+        <%= link_to "プロフィールを編集", edit_user_path, style: "color: gray;" %>
       </div>
       <div class="row">
-        <% unless @user.guest_user? %>
-          <div>
-            <%= link_to "プロフィールを編集", edit_user_path %>
-          </div>
+        <%=  link_to "ご注文履歴", orders_path(current_user), style: "color: gray;" %>
+      </div>
+    <% end %>
+    <% end %>
+      <div class="row mt-3">
+        <%= simple_format(@user.introduction) %>
+      </div>
+      <% if @user == current_user %>
+      <div class="row">
+        <%= link_to destroy_user_session_path, style: "color: gray;", method: :delete do %>
+          ログアウト<i class="fa-solid fa-arrow-right-from-bracket" style="color: gray;"></i>
         <% end %>
-      </div>
-      <div class="row">
-        <%= @user.introduction %>
+      <%end %>
       </div>
     </div>
   </div>

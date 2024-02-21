@@ -1,10 +1,10 @@
-<div class="container">
+<div class="container latest_container">
   <div class="row">
-    <div class="flex">
+    <div style="display: flex;">
     <% @latest_reviews.each do |review| %>
-    <div class="latest_img">
+    <div style="margin-right: 10px;">
     <%= link_to review_path(review.id) do %>
-      <%= image_tag review.get_review_image(200,550) %>
+      <%= image_tag review.get_review_image(190,550), style: "max-width: 200px; max-height: 550px;" %>
     <% end %>
     </div>
   <% end %>

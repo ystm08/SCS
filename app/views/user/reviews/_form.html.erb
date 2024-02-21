@@ -9,7 +9,7 @@
       <div><%= f.fields_for :reviews_items do |t| %>
       <%= render "reviews_item_fields", f: t %>
       <% end %>
-      <%= link_to_add_association "Goodsを追加する", f, :reviews_items %>
+      <%= link_to_add_association "Goodsを追加する", f, :reviews_items, style: "color: gray;" %>
       <div>Select category</div>
       <div><%= f.collection_select(:category_id, Category.all, :id, :name) %></div>
       <div>Review goods</div>

@@ -1,10 +1,10 @@
 <!--@review → review-->
 <% if review.favorited_by?(current_user) %>
-  <%= link_to review_favorite_path(review), method: :delete, remote: true, data: {"turbolinks" => false} do %>
+  <%= link_to review_favorite_path(review), style: "color: gray;", method: :delete, remote: true, data: {"turbolinks" => false} do %>
     ♥<%= review.favorites.count %>
   <% end %>
 <% else %>
-  <%= link_to review_favorite_path(review), method: :post, remote: true, data: {"turbolinks" => false} do %>
+  <%= link_to review_favorite_path(review), style: "color: gray;", method: :post, remote: true, data: {"turbolinks" => false} do %>
     ♡<%= review.favorites.count %>
   <% end %>
 <% end %>
