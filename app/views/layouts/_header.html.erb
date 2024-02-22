@@ -1,8 +1,7 @@
 <header>
  <nav>
    <div class="container">
-    <div class="row">
-
+    <div class="row　align-items-center">
       <ul class="list-group list-group-horizontal">
       <% if user_signed_in? %>
         <a class="navbar-brand" href="/homes/latest"><%= image_tag "scs2.png", :size => '50x20' %></a>
@@ -26,7 +25,7 @@
           <i class="fa-solid fa-cart-shopping" style="color: black;"></i>
           <% end %>
         </li>
-        <%= render 'layouts/search' %>
+      <%= render 'layouts/search' %>
 
       <% elsif admin_signed_in? %>
         <a class="navbar-brand" href="/admin/top"><%= image_tag "scs2.png", :size => '50x20' %></a>

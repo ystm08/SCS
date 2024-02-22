@@ -14,26 +14,30 @@
   <div class="row mb-5">
 
     <div class="col-6">
-      <div><%= image_tag @item.get_item_image(450,450) %></div>
+      <div class="item-img">
+        <div><%= image_tag @item.get_item_image(500,500) %></div>
+      </div>
     </div>
 
     <div class="col-6">
       <div class="row my-5">
         <%= simple_format(item.introduction) %>
       </div>
+      <hr>
       <div class="row mb-3">
         カテゴリー:<%= item.category.name %>
       </div>
       <div class="row">
         <h3><strong>¥<%= number_with_delimiter(item.add_tax_price, delimiter: ',') %>(税込)</strong></h3>
-      </div>
       <% if user_signed_in? %>
       <%= form_with model: cart_item do |f| %>
       <!--@cart_item → cart_item-->
-        <div class="row mt-2">
+
           <%= f.hidden_field :item_id, :value => item.id %>
+          <%= f.select :amount, *[1..10] %>
+      </div>
+        <div class="row mt-2">
           <%= f.submit "カートに入れる" %>
-          　　<%= f.select :amount, *[1..10] %>
         </div>
       <% end %>
       <% end %>

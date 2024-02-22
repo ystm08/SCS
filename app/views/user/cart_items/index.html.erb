@@ -30,7 +30,7 @@
             <% end %>
           </td>
           <td>
-           <%= number_with_delimiter(cart_item.subtotal, delimiter: ',') %>円
+           <%= number_with_delimiter(cart_item.subtotal, delimiter: ',') %>
            <%= link_to "削除", cart_item_path(cart_item.id), method: :delete %>
           </td>
         </tr>

@@ -3,7 +3,7 @@
     <div class="mx-auto">
       <%= form_with(model: item, url: item.persisted? ? admin_item_path(item) : admin_items_path, local: true, method: item.persisted? ? :patch : :post) do |f| %>
       <!--@item → item, @categories → categories-->
-      <table class="table table-borderless">
+      <table>
         <tr>
           <th>商品画像</th>
           <td><%= f.file_field :item_image, accept: "image/*" %></td>

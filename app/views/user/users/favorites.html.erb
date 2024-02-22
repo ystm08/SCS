@@ -6,11 +6,17 @@
     </div>
   </div>
 
-  <div class="row">
+  <hr>
+
+  <div class="row mt-4">
     <% @favorite_review.each do |review|%>
-      <%= link_to review_path(review.id) do %>
-        <%= image_tag review.get_review_image(300,300) %>
-      <% end %>
+      <div style="margin-right: 10px; margin-bottom: 10px;">
+        <div class="custom-img">
+          <%= link_to review_path(review.id) do %>
+            <%= image_tag review.get_review_image(270,270) %>
+          <% end %>
+        </div>
+      </div>
     <% end %>
   </div>
 

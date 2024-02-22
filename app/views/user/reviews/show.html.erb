@@ -2,15 +2,19 @@
 
   <div class="row my-5">
 
-    <div class="col-7">
-      <div class="row"><%= image_tag @review.get_review_image(500,500) %>　</div>
-      <div class="row">
+    <div class="col-6">
+      <div class="row justify-content-center">
+        <div class="review-img">
+          <%= image_tag @review.get_review_image(450,450) %>
+        </div>
+      </div>
+      <div class="row justify-content-center">
         comment:<span id="comment_count"><%= @review.comments.count %>　</span>
         <div id="favorite_buttons_<%= @review.id %>"><%= render "user/favorites/favorite", review: @review %></div>
       </div>
     </div>
 
-    <div class="col-5">
+    <div class="col-6">
       <div class="row">
         <%= simple_format(@review.content) %>
       </div>
@@ -26,6 +30,7 @@
           <%= link_to "削除", review_path(@review.id), style: "color: gray;", method: :delete, "data-confirm" => "本当に削除しますか？" %>
         <% end %>
       </div>
+      <hr>
       <div class="row">Review Goods</div>
       <% @review.items.each do |item| %>
         <div class="row">
@@ -44,6 +49,8 @@
         <% end %>
     </div>
   </div>
+
+  <hr>
 
   <div class="row my-4">
     <div class="mx-auto">

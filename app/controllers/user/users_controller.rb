@@ -32,7 +32,7 @@ class User::UsersController < ApplicationController
   def favorites
     @user = User.find(params[:id])
     favorites = Favorite.where(user_id: @user.id).pluck(:review_id)
-    @favorite_review = Review.where(id: favorites).page(params[:page]).per(8)
+    @favorite_review = Review.where(id: favorites).page(params[:page]).per(12)
   end
 
 

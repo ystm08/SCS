@@ -4,9 +4,10 @@
   <div><%= comment.user.user_name %><%= comment.content %>
   <% if comment.user == current_user %>
     <%= link_to review_comment_path(comment.review, comment), method: :delete, remote:true do %>
-    <i class="fa-solid fa-trash-can"></i>
+    <i class="fa-solid fa-trash" style="color: black;"></i>
     <% end %>
   <% end %>
+  <hr>
   </div>
 <% end %>
 </div>
