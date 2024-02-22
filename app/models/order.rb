@@ -13,7 +13,13 @@ class Order < ApplicationRecord
   end
 
   def subtotal_without_tax
-    order_details.sum { |detail| detail.item.price * detail.amount }
+    order_details.sum do |detail|
+      if detail.item.present?
+        detail.item.price * detail.amount
+      else
+        0
+      end
+    end
   end
 
 end

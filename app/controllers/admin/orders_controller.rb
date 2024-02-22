@@ -4,6 +4,10 @@ class Admin::OrdersController < ApplicationController
   def show
     @order = Order.find(params[:id])
     @order_details = @order.order_details
+  if @order_details.empty?
+    flash[:notice] = "注文履歴がありません"
+    redirect_to admin_top_path
+  end
   end
 
   def update_status

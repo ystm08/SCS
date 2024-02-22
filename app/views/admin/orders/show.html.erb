@@ -43,11 +43,18 @@
         <tbody>
           <% @order_details.each do |order_detail| %>
           <tr>
+          <% if order_detail.item.present? %>
             <td><%= order_detail.item.name %></td>
             <td><%= order_detail.item.price.to_s(:delimited) %>円</td>
             <td><%= order_detail.amount %></td>
             <td><%= (order_detail.item.price*order_detail.amount).to_s(:delimited) %>円</td>
-            <td>
+          <% else %>
+            <td>商品が見つかりません</td>
+            <td></td>
+            <td></td>
+            <td></td>
+          <% end %>
+              <td>
               <%= form_with model: @order, url: update_status_admin_order_path(@order), method: :patch do |f| %>
               <%= f.select :status, Order.order_statuses_i18n, class: "form-control" %>
               <%= f.submit "更新" %>
