@@ -27,15 +27,21 @@
       <div class="row mb-3">
         カテゴリー:<%= item.category.name %>
       </div>
-      <div class="row">
-        <h3><strong>¥<%= number_with_delimiter(item.add_tax_price, delimiter: ',') %>(税込)</strong></h3>
+      <%= form_with model: cart_item do |f| %>
+        <div class="row">
+          <div class="col-5">
+            <h3><strong>¥<%= number_with_delimiter(item.add_tax_price, delimiter: ',') %>(税込)</strong></h3>
+          </div>
         <% if user_signed_in? %>
-          <%= form_with model: cart_item do |f| %>
+          <div class="col">
             <%= f.hidden_field :item_id, :value => item.id %>
             <%= f.select :amount, *[1..10] %>
-            <%= f.submit "カートに入れる" %>
-          <% end %>
+          </div>
+        </div>
+        <div class="row">
+          <%= f.submit "カートに入れる", class: "item-submit" %>
+        </div>
         <% end %>
-      </div>
+      <% end %>
   </div>
 </div>

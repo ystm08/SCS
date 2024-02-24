@@ -3,36 +3,21 @@
     <div class="mx-auto">
       <%= form_with(model: item, url: item.persisted? ? admin_item_path(item) : admin_items_path, local: true, method: item.persisted? ? :patch : :post) do |f| %>
       <!--@item → item, @categories → categories-->
-      <table>
-        <tr>
-          <th>商品画像</th>
-          <td><%= f.file_field :item_image, accept: "image/*" %></td>
-        </tr>
-        <tr>
-          <th>商品名</th>
-          <td><%= f.text_field :name, placeholder: "商品名" %></td>
-        </tr>
-        <tr>
-          <th>商品説明</th>
-          <td><%= f.text_area :introduction, rows: '5', placeholder: "ここに説明文を記述します" %></td>
-        </tr>
-        <tr>
-          <th>カテゴリー</th>
-          <td><%= f.collection_select(:category_id, Category.all, :id, :name) %></td>
-        </tr>
-        <tr>
-          <th>税抜価格</th>
-          <td><%= f.text_field :price, placeholder: "1000" %>円</td>
-        </tr>
-        <tr>
-          <td></td>
-          <% if f.object.new_record? %>
-          <td><%= f.submit "新規投稿" %></td>
-          <% else %>
-          <td><%= f.submit "変更する" %></td>
-          <% end %>
-        </tr>
-      </table>
+        <div>商品画像</div>
+        <div><%= f.file_field :item_image, accept: "image/*" %></div>
+        <div>商品名</div>
+        <div><%= f.text_field :name, placeholder: "商品名" %></div>
+        <div>商品説明</div>
+        <div><%= f.text_area :introduction, rows: '5', placeholder: "ここに説明文を記述します" %></div>
+        <div>カテゴリー</div>
+        <div><%= f.collection_select(:category_id, Category.all, :id, :name) %></div>
+        <div>税抜価格</div>
+        <div><%= f.text_field :price, placeholder: "1000" %>円</div>
+        <% if f.object.new_record? %>
+        <div><%= f.submit "新規登録", class: "custom-submit" %></div>
+        <% else %>
+        <div><%= f.submit "変更する", class: "custom-submit" %></div>
+        <% end %>
       <% end %>
     </div>
   </div>

@@ -26,12 +26,12 @@
             <%= form_with model: cart_item, url: cart_item_path(cart_item.id), local:true do |f| %>
             <%= f.hidden_field :item_id, value: cart_item.item.id %>
             <%= f.select :amount, *[1..10] %>
-            <%= f.submit "変更" %>
+            <%= f.submit "変更", class: "CartItem-submit" %>
             <% end %>
           </td>
           <td>
            <%= number_with_delimiter(cart_item.subtotal, delimiter: ',') %>
-           <%= link_to "削除", cart_item_path(cart_item.id), method: :delete %>
+           <%= link_to "削除", cart_item_path(cart_item.id), class: "CartItem-link", method: :delete %>
           </td>
         </tr>
         <% end %>
@@ -44,12 +44,12 @@
       </tbody>
       <tbody>
        <td>
-        <%= link_to "買い物を続ける", latest_path %>
-        <%= link_to "カートの中身を空にする", cart_items_destroy_all_path, method: :delete, data: { confirm: "本当に空にしますか？"} %>
+        <%= link_to "買い物を続ける", latest_path, class: "custom-link2" %>
+        <%= link_to "カートの中身を空にする", cart_items_destroy_all_path, class: "custom-link2", method: :delete, data: { confirm: "本当に空にしますか？"} %>
        </td>
        <td></td>
        <td>送料は無料です</td>
-       <td><%= link_to "購入手続きへ進む", orders_confirm_path, method: :post %></td>
+       <td><%= link_to "購入手続きへ進む", orders_confirm_path, class: "custom-link", method: :post %></td>
       </tbody>
     </table>
    </div>

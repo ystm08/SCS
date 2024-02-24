@@ -15,9 +15,9 @@
       <div>Review goods</div>
       <div><%= f.text_area :content, size: "40" %></div>
       <% if f.object.new_record? %>
-        <div><%= f.submit "新規投稿" %></div>
+        <div><%= f.submit "新規投稿", class: "custom-submit" %></div>
       <% else %>
-        <div><%= f.submit "変更する" %></div>
+        <div><%= f.submit "変更する", class: "custom-submit" %></div>
       <% end %>
       </div>
     </div>

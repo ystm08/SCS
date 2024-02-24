@@ -1,5 +1,8 @@
 <div class="d-flex align-items-center">
 <%= search_form_for @q, url: search_path do |f| %>
-  <%= f.search_field :name_cont %><%= f.submit "検索" %>
+  <%= f.search_field :name_cont %>
+  <%= button_tag type: "submit", class: "CartItem-submit" do %>
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <% end %>
 <% end %>
 </div>

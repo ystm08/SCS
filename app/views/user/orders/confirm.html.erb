@@ -59,9 +59,9 @@
   </div>
 
   <div class="row">
-      戻るボタン作成
+      <%= link_to "戻る", cart_items_path, class: "custom-link2" %>
       <%= form_with url: orders_path, method: :post do %>
-      <%= submit_tag "注文を確定する", class: "btn btn-success" %>
+      <%= submit_tag "注文を確定する", class: "custom-submit" %>
       <% end %>
   </div>
 
