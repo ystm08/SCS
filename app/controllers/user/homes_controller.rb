@@ -2,6 +2,7 @@ class User::HomesController < ApplicationController
   before_action :authenticate_user!, except: [:top, :about]
 
   def top
+    render :layout => 'top'
   end
 
   def about

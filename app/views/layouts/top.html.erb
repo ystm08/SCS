@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>SCS</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <script src="https://kit.fontawesome.com/e9592687ff.js" crossorigin="anonymous"></script>
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+      <%= render 'layouts/header' %>
+      <div class="top_content">
+      <div class="d-flex align-items-center justify-content-center">
+      <%= yield %>
+      </div>
+      </div>
+    <footer class="footer">
+      <%= render 'layouts/footer' %>
+    </div>
+  </body>
+</html>

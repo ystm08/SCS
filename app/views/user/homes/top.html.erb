@@ -1,18 +1,20 @@
-<div class="d-flex align-items-center">
 <div class="container">
   <div class="row">
-    <div class="col-5">
+    <div class="col-8 top_col">
       <div class="mt-5">
-      <%= image_tag "scs.png", :size => '400x200' %>
+      <%= image_tag "scs.png", :size => '700x350' %>
       </div>
     </div>
-    <div class="col-7">
+    <div class="col-1"></div>
+    <div class="col-3">
       <div class="mt-5">
-      <p><strong>無料で登録して続行する</strong></p>
-      <div>すでにアカウントをお持ちの場合はログインしてください。</div>
-      <div><%= link_to "Sign up", new_user_registration_path, style: "color: black;" %></div>
-      <div><%= link_to "Log in", new_user_session_path, style: "color: black;" %></div>
-      <div><%= link_to "Guest log in", users_guest_sign_in_path, style: "color: black;", method: :post %></div>
+      <br>
+      <br>
+      <p><strong>　　無料で登録して続行する</strong></p>
+      <div>すでにアカウントをお持ちの場合ログインしてください。</div><br>
+      <div><%= link_to "Sign up", new_user_registration_path, class: "top-link" %></div><br>
+      <div><%= link_to "Log in", new_user_session_path, class: "top-link2" %></div><br>
+      <div><%= link_to "Guest login", users_guest_sign_in_path, class: "top-link3", method: :post %></div>
       </div>
     </div>
   </div>

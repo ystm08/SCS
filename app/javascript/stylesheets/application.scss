@@ -77,6 +77,58 @@ hr {
   border-color: black;
 }
 
+// top画面
+.top_content{
+  display: flex;
+  height: 690px;
+}
+
+.top_col{
+  padding-left: 0;
+}
+
+.top-link {
+  font-size: 14px;
+  color: white;
+  padding: 7px 100px;
+  background-color: black;
+  border-radius: 3px;
+}
+
+.top-link:hover {
+  color: white;
+  background-color: grey;
+  border-color: white;
+}
+
+.top-link2 {
+  font-size: 14px;
+  color: white;
+  padding: 7px 104px;
+  background-color: black;
+  border-radius: 3px;
+}
+
+.top-link2:hover {
+  color: white;
+  background-color: grey;
+  border-color: white;
+}
+
+.top-link3 {
+  font-size: 14px;
+  color: white;
+  padding: 7px 87px;
+  background-color: grey;
+  border-radius: 3px;
+}
+
+.top-link3:hover {
+  color: white;
+  background-color: black;
+  border-color: white;
+}
+
 // about画面
 .about-container {
   width: 100%;
