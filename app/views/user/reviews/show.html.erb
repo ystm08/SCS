@@ -15,42 +15,58 @@
     </div>
 
     <div class="col-6">
-      <div class="row">
+      <div class="row mt-5 mb-3 pl-4">
         <%= simple_format(@review.content) %>
       </div>
-      <div class="row">
-        <%= link_to user_path(@review.user), style: "color: black;" do %>
+      <div class="row pl-4">
+        Category：<%= @review.category.name %>
+      </div>
+      <div class="row pl-4">
+        <%= link_to user_path(@review.user), style: "color: grey;" do %>
         @<%= @review.user.user_name %>
         <% end %>
       </div>
-      <div class="row my-3">
-        <p>Category：<%= @review.category.name %></p>
-        <% if @review.user == current_user %>
-          <%= link_to "編集", edit_review_path(@review), style: "color: gray;" %>
+
+      <% if @review.user == current_user %>
+        <div class="row mt-3 pl-4">
+          <%= link_to "編集", edit_review_path(@review), style: "color: gray;" %>：
           <%= link_to "削除", review_path(@review.id), style: "color: gray;", method: :delete, "data-confirm" => "本当に削除しますか？" %>
-        <% end %>
-      </div>
-      <hr>
-      <div class="row">Review Goods</div>
-      <% @review.items.each do |item| %>
-        <div class="row">
-          <%= link_to item_path(item.id), style: "color: gray;" do %>
-            <%= item.name %>
-          <% end %>
-          ¥<%= item.price %>
-          <%= form_with model: @cart_item do |f| %>
-            <%= f.hidden_field :item_id, :value => item.id %>
-            　<%= f.select :amount, *[1..10] %>
-            <%= button_tag type: "submit", class: "btn btn-default" do %>
-            <i class="fa-solid fa-cart-shopping"></i>
-            <% end %>
-          <% end %>
         </div>
+      <% end %>
+
+      <hr class="custom-hr">
+      <div class="row my-3 pl-4"><strong>Review Goods</strong></div>
+
+      <div class="row pl-4">
+      <table>
+        <% @review.items.each do |item| %>
+          <tr>
+            <td>
+              <%= link_to item_path(item.id), style: "color: gray;" do %>
+                <%= item.name %>
+              <% end %>
+            </td>
+            <td>
+              &emsp;¥<%= item.price %>&emsp;
+            </td>
+            <td>
+              <%= form_with model: @cart_item do |f| %>
+                <%= f.hidden_field :item_id, :value => item.id %>
+                <%= f.select :amount, *[1..10] %>
+                <%= button_tag type: "submit", class: "btn btn-default" do %>
+                  <i class="fa-solid fa-cart-shopping"></i>
+                <% end %>
+              <% end %>
+            </td>
+          </tr>
         <% end %>
+      </table>
+      </div>
+
     </div>
   </div>
 
-  <hr>
+  <hr class="custom-hr">
 
   <div class="row my-4">
     <div class="mx-auto">

@@ -37,14 +37,14 @@
     </div>
   </div>
 
-  <div class="row">
+  <div class="row mt-5 mb-3 ml-5">
     送料は無料です。<br>
     お支払いは代金引換えのみになります。<br>
   </div>
-  <div class="row mt-4">
+  <div class="row mt-4 ml-5">
     <table>
       <tr>
-        <td>お届け先</td>
+        <td>お届け先&emsp;</td>
         <td>〒<%= current_user.post_code %></td>
       </tr>
       <tr>
@@ -58,11 +58,18 @@
     </table>
   </div>
 
-  <div class="row">
+  <div class="row mt-5">
+    <div class="col-7"></div>
+    <div class="col-2">
+      <div class="d-flex justify-content-end">
       <%= link_to "戻る", cart_items_path, class: "custom-link2" %>
+      </div>
+    </div>
+    <div class="col-2">
       <%= form_with url: orders_path, method: :post do %>
       <%= submit_tag "注文を確定する", class: "custom-submit" %>
       <% end %>
+    </div>
   </div>
 
 </div>

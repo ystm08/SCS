@@ -1,13 +1,17 @@
 <!--@review → review-->
-<div>
-<% review.comments.each do |comment| %>
-  <div><%= comment.user.user_name %><%= comment.content %>
-  <% if comment.user == current_user %>
-    <%= link_to review_comment_path(comment.review, comment), method: :delete, remote:true do %>
-    <i class="fa-solid fa-trash" style="color: black;"></i>
-    <% end %>
+<div class="comment_show">
+  <% review.comments.each do |comment| %>
+    <div class="row">
+        <div class="col-1"><%= comment.user.user_name %></div>
+        <div class="col-10"><%= comment.content %></div>
+        <% if comment.user == current_user %>
+          <div class="col-1">
+            <%= link_to review_comment_path(comment.review, comment), method: :delete, remote:true do %>
+            <i class="fa-solid fa-trash" style="color: black;"></i>
+            <% end %>
+          </div>
+        <% end %>
+    </div>
+    <hr>
   <% end %>
-  <hr>
-  </div>
-<% end %>
 </div>

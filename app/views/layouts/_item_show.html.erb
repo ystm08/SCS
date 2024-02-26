@@ -6,8 +6,8 @@
       <h3><strong><%= item.name %></strong></h3>
     </div>
     <% if admin_signed_in? %>
-    <%= link_to "編集", edit_admin_item_path %>
-    <%= link_to "削除", admin_item_path(item.id), method: :delete, "data-confirm" => "本当に削除しますか？" %>
+    <%= link_to "編集", edit_admin_item_path, style: "color: gray;" %>：
+    <%= link_to "削除", admin_item_path(item.id), style: "color: gray;", method: :delete, "data-confirm" => "本当に削除しますか？" %>
     <% end %>
   </div>
 
@@ -20,25 +20,25 @@
     </div>
 
     <div class="col-6">
-      <div class="row my-5">
+      <div class="row my-5 pl-4">
         <%= simple_format(item.introduction) %>
       </div>
       <hr>
-      <div class="row mb-3">
+      <div class="row mt-4 mb-3 pl-4">
         カテゴリー:<%= item.category.name %>
       </div>
       <%= form_with model: cart_item do |f| %>
-        <div class="row">
+        <div class="row pl-3 mt-5">
           <div class="col-5">
             <h3><strong>¥<%= number_with_delimiter(item.add_tax_price, delimiter: ',') %>(税込)</strong></h3>
           </div>
         <% if user_signed_in? %>
-          <div class="col">
+          <div class="col mt-2">
             <%= f.hidden_field :item_id, :value => item.id %>
             <%= f.select :amount, *[1..10] %>
           </div>
         </div>
-        <div class="row">
+        <div class="row pl-4 mt-3">
           <%= f.submit "カートに入れる", class: "item-submit" %>
         </div>
         <% end %>

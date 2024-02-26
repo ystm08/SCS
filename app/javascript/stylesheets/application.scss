@@ -14,7 +14,7 @@ body, html {
   text-align: center;
 }
 
-hr {
+.custom-hr {
   border-color: black;
 }
 
@@ -298,6 +298,10 @@ hr {
 
 .comment_content:focus {
   outline: none;
+}
+
+.comment_show {
+  width: 1000px;
 }
 
 // 検索ボタン、注文ステータス、会員ステータスにも使用中
