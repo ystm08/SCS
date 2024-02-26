@@ -4,7 +4,7 @@
   </div>
 
   <div class="row">
-    <table>
+    <table class="custom-table2">
       <tr>
         <th>会員ID</th>
         <td><%= @user.id %></td>
@@ -31,13 +31,15 @@
       </tr>
       <tr>
         <th>メールアドレス</th>
-        <td><%= @user.email %></td>
+        <td>&emsp;<%= @user.email %></td>
       </tr>
       <tr>
         <th>会員ステータス</th>
         <%= form_with model: [:admin, @user], method: :patch do |f| %>
         <td>
-          <%= @user.user_status %>
+          &emsp;
+          <b><%= @user.user_status %></b>
+          &emsp;
           <%= f.radio_button :is_active, :true %>
           <%= f.label :is_active, "有効", { value: :false} %>
           <%= f.radio_button :is_active, false %>

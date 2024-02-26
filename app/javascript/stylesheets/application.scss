@@ -19,11 +19,15 @@ body, html {
 }
 
 .table {
-    width: 1000px;
+  width: 1000px;
 }
 
 .custom-table {
-    width: 700px;
+  width: 700px;
+}
+
+.custom-table2 td, .custom-table2 th {
+  height: 40px;
 }
 
 .custom-img {

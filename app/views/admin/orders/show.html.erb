@@ -4,7 +4,7 @@
   </div>
 
   <div class="row mb-5">
-    <table>
+    <table class="custom-table2">
       <tr>
         <th>購入者</th>
         <td>
@@ -19,7 +19,7 @@
       </tr>
       <tr>
         <th>配送先</th>
-        <td><%= @order.user.post_code %></td>
+        <td>〒&nbsp;<%= @order.user.post_code %></td>
       </tr>
       <tr>
         <th></th>
