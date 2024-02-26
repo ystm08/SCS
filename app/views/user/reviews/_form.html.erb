@@ -5,15 +5,16 @@
     <div class="mx-auto">
       <div>Upload goods image</div>
       <div><%= f.file_field :review_image, accept: "image/*" %></div>
-      <div>Select goods</div>
+      <div class="mt-3">Select goods</div>
       <div><%= f.fields_for :reviews_items do |t| %>
       <%= render "reviews_item_fields", f: t %>
       <% end %>
       <%= link_to_add_association "Goodsを追加する", f, :reviews_items, style: "color: gray;" %>
-      <div>Select category</div>
+      <br>
+      <div class="mt-2">Select category</div>
       <div><%= f.collection_select(:category_id, Category.all, :id, :name) %></div>
-      <div>Review goods</div>
-      <div><%= f.text_area :content, size: "40" %></div>
+      <div class="mt-3">Review goods</div>
+      <div class="mb-3"><%= f.text_area :content, size: "40" %></div>
       <% if f.object.new_record? %>
         <div><%= f.submit "新規投稿", class: "custom-submit" %></div>
       <% else %>
