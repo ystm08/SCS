@@ -29,7 +29,12 @@ ECサイト機能も使えるファッション・美容特化型 SNS
 ・何か買いたいけど買いたいものが明確でない時
 
 ## 設計書
-<!--テーマを設定・提出する時点では不要です-->
+・ER図<br>
+https://drive.google.com/file/d/1EyEd3X2c6LQX0UYt7909u7SowtHiaYDA/view?usp=sharing<br><br>
+・ワイヤーフレーム<br>
+https://www.figma.com/file/F2Qmp0zeZFbMBkKwfGzBqo/SCS%2FUI-Flows?type=design&node-id=0%3A1&mode=design&t=EOjydJVQivJmuu2z-1<br><br>
+・テーブル定義書<br>
+https://docs.google.com/spreadsheets/d/1SXTsyVS2_txfghVBgIdltBDWqQRQ_j_HzLEidMhJ6EM/edit?usp=sharing
 ​
 ## 開発環境
 - OS：Linux(CentOS)
@@ -39,4 +44,5 @@ ECサイト機能も使えるファッション・美容特化型 SNS
 - IDE：Cloud9
 ​
 ## 使用素材
-- 使用検討中です。
+- フリー素材として以下を使用
+  - Unsplash (https://unsplash.com/ja)
