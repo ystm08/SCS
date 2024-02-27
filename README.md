@@ -32,7 +32,7 @@ ECサイト機能も使えるファッション・美容特化型 SNS
 ・ER図<br>
 https://drive.google.com/file/d/1EyEd3X2c6LQX0UYt7909u7SowtHiaYDA/view?usp=sharing<br><br>
 ・ワイヤーフレーム<br>
-https://www.figma.com/file/F2Qmp0zeZFbMBkKwfGzBqo/SCS%2FUI-Flows?type=design&node-id=0%3A1&mode=design&t=EOjydJVQivJmuu2z-1<br><br>
+https://www.figma.com/file/F2Qmp0zeZFbMBkKwfGzBqo/SCS%2F%E3%83%AF%E3%82%A4%E3%83%A4%E3%83%BC%E3%83%95%E3%83%AC%E3%83%BC%E3%83%A0%2FUI-Flows?type=design&node-id=0%3A1&mode=design&t=hGqeC9PxZzLIjqNx-1<br><br>
 ・テーブル定義書<br>
 https://docs.google.com/spreadsheets/d/1SXTsyVS2_txfghVBgIdltBDWqQRQ_j_HzLEidMhJ6EM/edit?usp=sharing
 ​
