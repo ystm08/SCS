@@ -61,68 +61,68 @@ end
 
 fashion1 = Item.find_or_create_by!(name: "Bag(Blue)") do |item|
   item.category_id = 1
-  item.introduction = "ダックブルーのカラーが目を引くおしゃれなショルダーバッグです。女性らしいデザインで、さまざまなシーンで活躍し、日常のコーディネートにアクセントを加えます。"
+  item.introduction = "ダックブルーのカラーが目を引く\r\nおしゃれなショルダーバッグです。\r\n\r\n女性らしいデザインで、さまざまなシーンで活躍し\r\n日常のコーディネートにアクセントを加えます。"
   item.price = "3500"
   item.item_image = ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/sample-fashion1.jpg"), filename:"sample-fashion1.jpg")
 end
 
 fashion2 = Item.find_or_create_by!(name: "Snake necklace(Gold)") do |item|
   item.category_id = 1
-  item.introduction = "スタイリッシュなゴールドのスネークネックレスです。サージカルステンレスで錆びにくく、長く愛用できます。"
+  item.introduction = "スタイリッシュなゴールドのスネークネックレスです。\r\nサージカルステンレスで錆びにくく、長く愛用できます。"
   item.price = "1800"
   item.item_image = ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/sample-fashion2.jpg"), filename:"sample-fashion2.jpg")
 end
 
 fashion3 = Item.find_or_create_by!(name: "High heels(Black)") do |item|
   item.category_id = 1
-  item.introduction = "エレガントなブラックのハイヒールパンプスです。上品なデザインと高いヒールが女性らしさを引き立てます。仕事やパーティーなど様々なシーンで活躍する一足です。"
+  item.introduction = "エレガントなブラックのハイヒールパンプスです。\r\n上品なデザインと高いヒールが女性らしさを引き立てます。\r\n仕事やパーティーなど様々なシーンで活躍する一足です。"
   item.price = "5000"
   item.item_image = ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/sample-fashion3.jpg"), filename:"sample-fashion3.jpg")
 end
 
 nail1 = Item.find_or_create_by!(name: "Nail polish") do |item|
   item.category_id = 2
-  item.introduction = "爪を華やかに彩るネイルポリッシュです。簡単に塗布でき、速乾性があります。デイリーユースからパーティーシーンまで幅広くお使いいただけます。"
+  item.introduction = "爪を華やかに彩るネイルポリッシュです。\r\n簡単に塗布でき、速乾性があります。\r\nデイリーユースからパーティーシーンまで幅広くお使いいただけます。"
   item.price = "1200"
   item.item_image = ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/sample-nail1.jpg"), filename:"sample-nail1.jpg")
 end
 
 nail2 = Item.find_or_create_by!(name: "Nail(Black)") do |item|
   item.category_id = 2
-  item.introduction = "高発色なネイルポリッシュです。濃密な発色と艶やかな仕上がりが特長で、手元をエレガントに演出します。パーティーシーンや特別な日に最適です。"
+  item.introduction = "高発色なネイルポリッシュです。\r\n濃密な発色と艶やかな仕上がりが特長で、\r\n手元をエレガントに演出します。\r\nパーティーシーンや特別な日に最適です。"
   item.price = "1500"
   item.item_image = ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/sample-nail2.jpg"), filename:"sample-nail2.jpg")
 end
 
 nail3 = Item.find_or_create_by!(name: "Gel nails") do |item|
   item.category_id = 2
-  item.introduction = "長持ちするジェルネイルです。豊富なカラーバリエーションで、お好みのカラーをお選びいただけます。自宅で簡単にセルフネイルが楽しめます。"
+  item.introduction = "長持ちするジェルネイルです。\r\n豊富なカラーバリエーションで\r\nお好みのカラーをお選びいただけます。\r\n自宅で簡単にセルフネイルが楽しめます。"
   item.price = "1800"
   item.item_image = ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/sample-nail3.jpg"), filename:"sample-nail3.jpg")
 end
 
 cosmetic1 = Item.find_or_create_by!(name: "Beauty serum") do |item|
   item.category_id = 3
-  item.introduction = "潤いを与えながら肌を引き締める美容液です。ヒアルロン酸やコラーゲンなどの保湿成分が肌に潤いを与え、ハリと弾力をサポートします。日々のスキンケアにおすすめのアイテムです。"
+  item.introduction = "潤いを与えながら肌を引き締める美容液です。\r\n\r\nヒアルロン酸やコラーゲンなどの保湿成分が\r\n肌に潤いを与え、ハリと弾力をサポートします。\r\n\r\n日々のスキンケアにおすすめのアイテムです。"
   item.price = "2800"
   item.item_image = ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/sample-cosmetic1.jpg"), filename:"sample-cosmetic1.jpg")
 end
 
 cosmetic2 = Item.find_or_create_by!(name: "Lipstick") do |item|
   item.category_id = 3
-  item.introduction = "しっとりしたテクスチャーで唇にぴったり密着し、美しいマットな仕上がりを演出するベルベットマットリップスティックです。豊富なカラーバリエーションから、お気に入りの色を見つけてください。"
+  item.introduction = "しっとりしたテクスチャーで唇にぴったり密着し、\r\n美しいマットな仕上がりを演出する\r\nベルベットマットリップスティックです。\r\n\r\n豊富なカラーバリエーションから\r\nお気に入りの色を見つけてください。"
   item.price = "1600"
   item.item_image = ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/sample-cosmetic2.jpg"), filename:"sample-cosmetic2.jpg")
 end
 
 cosmetic3 = Item.find_or_create_by!(name: "Eye shadow") do |item|
   item.category_id = 3
-  item.introduction = "自然な仕上がりを楽しめるシルキーアイシャドウです。滑らかなテクスチャーで、肌になじみやすく長時間持続します。"
+  item.introduction = "自然な仕上がりを楽しめるシルキーアイシャドウです。\r\n滑らかなテクスチャーで\r\n肌になじみやすく長時間持続します。"
   item.price = "800"
   item.item_image = ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/sample-cosmetic3.jpg"), filename:"sample-cosmetic3.jpg")
 end
 
-review1 = Review.find_or_create_by!(content: "今日は素敵なネイルポリッシュを新しく買いました！久しぶりにおうちネイル出来て楽しかった💅") do |review|
+review1 = Review.find_or_create_by!(content: "今日は素敵なネイルポリッシュを新しく買いました！\r\n久しぶりにおうちネイル出来て楽しかった💅") do |review|
   review.user_id = 1
   review.category_id = 2
   review.review_image = ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/sample-review1.jpg"), filename:"sample-review1.jpg")
@@ -134,13 +134,13 @@ review2 = Review.find_or_create_by!(content: "最近化粧ノリいい〜大満�
   review.review_image = ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/sample-review2.jpg"), filename:"sample-review2.jpg")
 end
 
-review3 = Review.find_or_create_by!(content: "次の予定が楽しみすぎて服だけ完成してしまった笑ゴールドのスネークネックレスお気に入り🫶") do |review|
+review3 = Review.find_or_create_by!(content: "次の予定が楽しみすぎて\r\n服だけ完成してしまった笑\r\n\r\nゴールドのスネークネックレスお気に入り🫶") do |review|
   review.user_id = 2
   review.category_id = 1
   review.review_image = ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/sample-review3.jpg"), filename:"sample-review3.jpg")
 end
 
-review4 = Review.find_or_create_by!(content: "新しいアイシャドウを手に入れた！🫶 この色本当に素敵だし、つけ心地も最高おすすめ！") do |review|
+review4 = Review.find_or_create_by!(content: "新しいアイシャドウを手に入れた！🫶\r\nこの色本当に素敵だし\r\nつけ心地も最高おすすめ！") do |review|
   review.user_id = 3
   review.category_id = 3
   review.review_image = ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/sample-review4.jpg"), filename:"sample-review4.jpg")
@@ -152,13 +152,13 @@ review5 = Review.find_or_create_by!(content: "ネイルハマってしまって�
   review.review_image = ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/sample-review5.jpg"), filename:"sample-review5.jpg")
 end
 
-review6 = Review.find_or_create_by!(content: "天気いいのでお散歩🙆💕この前買った美容液の調子が良い!!") do |review|
+review6 = Review.find_or_create_by!(content: "天気いいのでお散歩🙆💕\r\nこの前買った美容液の調子が良い!!") do |review|
   review.user_id = 2
   review.category_id = 3
   review.review_image = ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/sample-review6.jpg"), filename:"sample-review6.jpg")
 end
 
-review7 = Review.find_or_create_by!(content: "めちゃくちゃ可愛い黒のパンプスGet!!可愛いは正義!!") do |review|
+review7 = Review.find_or_create_by!(content: "めちゃくちゃ可愛い黒のパンプスGet!!\r\n可愛いは正義!!") do |review|
   review.user_id = 3
   review.category_id = 1
   review.review_image = ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/sample-review7.jpg"), filename:"sample-review7.jpg")
