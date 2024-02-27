@@ -134,7 +134,7 @@ review2 = Review.find_or_create_by!(content: "最近化粧ノリいい〜大満�
   review.review_image = ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/sample-review2.jpg"), filename:"sample-review2.jpg")
 end
 
-review3 = Review.find_or_create_by!(content: "次の予定が楽しみすぎて\r\n服だけ完成してしまった笑\r\n\r\nゴールドのスネークネックレスお気に入り🫶") do |review|
+review3 = Review.find_or_create_by!(content: "次の予定が楽しみすぎて\r\n服だけ完成してしまった笑\r\nゴールドのスネークネックレスお気に入り🫶") do |review|
   review.user_id = 2
   review.category_id = 1
   review.review_image = ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/sample-review3.jpg"), filename:"sample-review3.jpg")
