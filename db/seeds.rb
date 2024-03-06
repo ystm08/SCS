@@ -41,7 +41,7 @@ user2 = User.find_or_create_by!(email: "user2@example.com") do |user|
   user.post_code = "1561159"
   user.address = "大阪府交野市妙見東1-1-16"
   user.user_name = "yumi..."
-  user.introduction = "カフェ ふく おしゃべり お酒 旅行 #おしゃれさんと繋がりたい"
+  user.introduction = "カフェ ふく おしゃべり お酒 旅行 \r\n#おしゃれさんと繋がりたい"
   user.is_active = true
   user.profile_image = ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/sample-user2.jpg"), filename:"sample-user2.jpg")
 end

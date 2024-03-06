@@ -184,14 +184,14 @@ body, html {
 }
 
 .linkZoom{
-  display:inline-block;
-  transition:transform .3s;
-  cursor:pointer
+  display: inline-block;
+  transition: transform .3s;
+  cursor: pointer;
 }
 
 .linkZoom:hover{
   text-decoration: none;
-  transform:scale(1.2)
+  transform: scale(1.2);
 }
 
 // user_session画面
