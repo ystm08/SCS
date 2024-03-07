@@ -14,13 +14,19 @@ class User::RelationshipsController < ApplicationController
   end
 
   def followings
-    user = User.find(params[:user_id])
-    @users = user.followings
+    @user = User.find(params[:id])
+    @users = @user.followings
+    @followings = @users
+    @followers = @user.followers
+    @favorite_all = @user.reviews.inject(0) { |sum, review| sum + review.favorites.count }
   end
 
   def followers
-    user = User.find(params[:user_id])
-    @users = user.followers
+    @user = User.find(params[:id])
+    @users = @user.followers
+    @followings = @user.followings
+    @followers = @users
+    @favorite_all = @user.reviews.inject(0) { |sum, review| sum + review.favorites.count }
   end
 
 end

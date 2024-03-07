@@ -1,0 +1,18 @@
+<% users.each do |user| %>
+  <table>
+    <tbody>
+      <tr>
+        <td>
+          <%= link_to user_path(user.id) do %>
+          <%= image_tag user.get_profile_image(50,50), class: "rounded-circle" %>
+          <% end %>
+        </td>
+        <td><%= user.user_name %></td>
+        <td>フォロー<%= user.followings.count %></td>
+        <td>フォロワー<%= user.followers.count %></td>
+        <td>♥<%= favorite_all %></td>
+        <td><%= render "user/relationships/btn", user: user %></td>
+      </tr>
+    </tbody>
+  </table>
+<% end %>
