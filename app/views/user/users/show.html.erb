@@ -12,6 +12,9 @@
       <div class="row">
         <h3><%= @user.user_name %>　♡<%= @favorite_all %></h3>
       </div>
+      <div class="row">
+        フォロワー： フォロー：
+      </div>
     <% unless @user.guest_user? %>
     <% if @user == current_user %>
       <div class="row">
