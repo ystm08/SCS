@@ -6,6 +6,8 @@ class User::UsersController < ApplicationController
     @user = User.find(params[:id])
     @reviews = @user.reviews.page(params[:page]).per(8)
     @favorite_all = @user.reviews.inject(0) { |sum, review| sum + review.favorites.count }
+    @followers = @user.followers
+    @followings = @user.followings
   end
 
   def edit

@@ -13,7 +13,8 @@
         <h3><%= @user.user_name %>　♡<%= @favorite_all %></h3>
       </div>
       <div class="row">
-        フォロワー： フォロー：
+        フォロワー：<%= link_to followers_user_path(@user), style: "color: gray;"  do %><%= @followers.count %><% end %>
+        &emsp;フォロー：<%= link_to followings_user_path(@user), style: "color: gray;" do %><%= @followings.count %><% end %>
       </div>
     <% unless @user.guest_user? %>
     <% if @user == current_user %>
