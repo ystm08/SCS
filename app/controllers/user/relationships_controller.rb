@@ -18,7 +18,6 @@ class User::RelationshipsController < ApplicationController
     @users = @user.followings
     @followings = @users
     @followers = @user.followers
-    @favorite_all = @user.reviews.inject(0) { |sum, review| sum + review.favorites.count }
   end
 
   def followers
@@ -26,7 +25,6 @@ class User::RelationshipsController < ApplicationController
     @users = @user.followers
     @followings = @user.followings
     @followers = @users
-    @favorite_all = @user.reviews.inject(0) { |sum, review| sum + review.favorites.count }
   end
 
 end

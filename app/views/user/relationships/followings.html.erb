@@ -2,13 +2,13 @@
   <div class="row">
     <h4>フォロー中のユーザー</h4>
   </div>
-    <% if @users.exists? %>
-      <div class="row">
-        <%= render "index", user: @user, users: @users, followings: @followings, followers: @followers, favorite_all: @favorite_all %>
-      </div>
-    <% else %>
-      <div class="row">
-        ユーザーはいません
-      </div>
-    <% end %>
+<% if @users.exists? %>
+  <div class="row">
+    <%= render "index", user: @user, users: @users, followings: @followings, followers: @followers %>
+  </div>
+<% else %>
+  <div class="row">
+    ユーザーはいません
+  </div>
+<% end %>
 </div>
