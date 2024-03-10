@@ -12,6 +12,7 @@
       <table class="table">
         <tr>
           <th>商品ID</th>
+          <th>商品画像</th>
           <th>商品名</th>
           <th>税抜価格</th>
           <th>ジャンル</th>
@@ -20,6 +21,7 @@
           <% @items.each do |item| %>
             <tr>
               <td><%= item.id %></td>
+              <td><%= image_tag item.get_item_image(50,50) %></td>
               <td><%= link_to item.name, admin_item_path(item), style: "color: gray;" %></td>
               <td><%= number_with_delimiter(item.price, delimiter: ',') %>円</td>
               <td><%= item.category.name %></td>
