@@ -41,6 +41,7 @@
       <table>
         <% @review.items.each do |item| %>
           <tr>
+            <td><%= image_tag item.get_item_image(30,30) %>&emsp;</td>
             <td>
               <%= link_to item_path(item.id), style: "color: gray;" do %>
                 <%= item.name %>
