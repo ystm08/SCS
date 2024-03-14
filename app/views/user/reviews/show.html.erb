@@ -8,7 +8,7 @@
           <%= image_tag @review.get_review_image(450,450) %>
         </div>
       </div>
-      <div class="row justify-content-center">
+      <div class="row justify-content-center mt-2">
         comment:<span id="comment_count"><%= @review.comments.count %>　</span>
         <div id="favorite_buttons_<%= @review.id %>"><%= render "user/favorites/favorite", review: @review %></div>
       </div>
