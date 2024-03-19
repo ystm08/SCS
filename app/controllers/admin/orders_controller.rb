@@ -1,8 +1,8 @@
 class Admin::OrdersController < ApplicationController
   before_action :authenticate_admin!
+  before_action :find_order_id
 
   def show
-    @order = Order.find(params[:id])
     @order_details = @order.order_details
   if @order_details.empty?
     flash[:notice] = "注文履歴がありません"
@@ -11,17 +11,21 @@ class Admin::OrdersController < ApplicationController
   end
 
   def update_status
-    @order = Order.find(params[:id])
     if @order.update(order_params)
       flash[:notice] = "注文ステータスを更新しました"
       redirect_to request.referer
     else
-      flash[:alert] = "注文ステータスの更新に失敗しました"
+      flash[:notice] = "注文ステータスの更新に失敗しました"
       redirect_to request.referer
     end
   end
 
+
   private
+
+  def find_order_id
+    @order = Order.find(params[:id])
+  end
 
   def order_params
     params.require(:order).permit(:status)

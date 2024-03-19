@@ -4,6 +4,7 @@
   </div>
 
   <div class="row mb-5">
+    <!--TODO:注文履歴がない場合のフラッシュメッセージを実装する。コントローラは実装済み-->
     <table class="custom-table2">
       <tr>
         <th>購入者</th>
@@ -33,6 +34,10 @@
           <%= f.submit "更新", class: "CartItem-submit" %>
           <% end %>
         </td>
+      </tr>
+      <tr>
+        <th></th>
+        <td><%= flash[:notice] %></td>
       </tr>
     </table>
   </div>

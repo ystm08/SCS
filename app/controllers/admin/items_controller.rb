@@ -1,10 +1,10 @@
 class Admin::ItemsController < ApplicationController
   before_action :authenticate_admin!
   before_action :set_item, only: [:show, :edit, :update]
+  before_action :all_load_categories, only: [:new, :edit, :update]
 
   def new
     @item = Item.new
-    @categories = Category.all
   end
 
   def create
@@ -17,7 +17,7 @@ class Admin::ItemsController < ApplicationController
   end
 
   def index
-    @items = Item.page(params[:page]).per(10).order(created_at: :desc)
+    @items = Item.order(created_at: :desc).page(params[:page]).per(10)
   end
 
   def show
@@ -25,14 +25,12 @@ class Admin::ItemsController < ApplicationController
   end
 
   def edit
-    @categories = Category.all
   end
 
   def update
     if @item.update(item_params)
       redirect_to admin_item_path(@item.id)
     else
-      @categories = Category.all
       render :edit
     end
   end
@@ -47,6 +45,10 @@ class Admin::ItemsController < ApplicationController
 
   def set_item
     @item = Item.find(params[:id])
+  end
+
+  def all_load_categories
+    @categories = Category.all
   end
 
   def item_params
