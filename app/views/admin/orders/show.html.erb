@@ -4,7 +4,7 @@
   </div>
 
   <div class="row mb-5">
-    <!--TODO:注文履歴がない場合のフラッシュメッセージを実装する。コントローラは実装済み-->
+    <%= flash[:info] %>
     <table class="custom-table2">
       <tr>
         <th>購入者</th>
@@ -37,7 +37,7 @@
       </tr>
       <tr>
         <th></th>
-        <td><%= flash[:notice] %></td>
+        <td><%= flash[:success] %></td>
       </tr>
     </table>
   </div>
