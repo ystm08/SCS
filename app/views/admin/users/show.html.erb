@@ -4,6 +4,7 @@
   </div>
 
   <div class="row">
+    <%= form_with model: [:admin, @user], method: :patch do |f| %>
     <table class="custom-table2">
       <tr>
         <th>会員ID</th>
@@ -35,7 +36,6 @@
       </tr>
       <tr>
         <th>会員ステータス</th>
-        <%= form_with model: [:admin, @user], method: :patch do |f| %>
         <td>
           &emsp;
           <b><%= @user.user_status %></b>
@@ -46,9 +46,9 @@
           <%= f.label :is_active, "退会", { value: :true} %>
           <%= f.submit "変更する", class: "CartItem-submit" %>
         </td>
-        <% end %>
       </tr>
     </table>
+    <% end %>
   </div>
 
 </div>
