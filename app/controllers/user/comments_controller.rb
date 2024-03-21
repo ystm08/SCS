@@ -1,15 +1,14 @@
 class User::CommentsController < ApplicationController
   before_action :authenticate_user!
+  before_action :set_review
 
   def create
-    @review = Review.find(params[:review_id])
-    comment = current_user.comments.new(comment_params)
-    comment.review_id = @review.id
-    comment.save
+    @comment = current_user.comments.new(comment_params)
+    @comment.review_id = @review.id
+    @comment.save
   end
 
   def destroy
-    @review = Review.find(params[:review_id])
     Comment.find(params[:id]).destroy
   end
 
@@ -17,5 +16,9 @@ class User::CommentsController < ApplicationController
 
   def comment_params
     params.require(:comment).permit(:content)
+  end
+
+  def set_review
+    @review = Review.find(params[:review_id])
   end
 end

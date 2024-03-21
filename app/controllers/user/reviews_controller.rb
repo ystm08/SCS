@@ -1,5 +1,7 @@
 class User::ReviewsController < ApplicationController
   before_action :authenticate_user!
+  before_action :set_review, only: [:show, :edit, :update, :destroy]
+  before_action :is_matching_login_user, only: [:edit, :update, :destroy]
 
   def new
     @review = Review.new
@@ -17,7 +19,7 @@ class User::ReviewsController < ApplicationController
   end
 
   def index
-    @reviews = Review.page(params[:page]).per(12).order(created_at: :desc)
+    @reviews = Review.order(created_at: :desc).page(params[:page]).per(12)
     if params[:category].present?
       case params[:category]
       when 'fashion'
@@ -36,17 +38,14 @@ class User::ReviewsController < ApplicationController
   end
 
   def show
-    @review = Review.find(params[:id])
     @cart_item = CartItem.new
     @comment = Comment.new
   end
 
   def edit
-    @review = Review.find(params[:id])
   end
 
   def update
-    @review = Review.find(params[:id])
     if @review.update(review_params)
       redirect_to review_path(@review.id)
     else
@@ -55,7 +54,6 @@ class User::ReviewsController < ApplicationController
   end
 
   def destroy
-    @review = Review.find(params[:id])
     @review.destroy
     redirect_to user_path(current_user)
   end
@@ -64,6 +62,16 @@ class User::ReviewsController < ApplicationController
 
   def review_params
     params.require(:review).permit(:review_image, :content, :category_id, reviews_items_attributes: [:id, :item_id, :_destroy])
+  end
+
+  def set_review
+    @review = Review.find(params[:id])
+  end
+
+  def is_matching_login_user
+    unless @review.user_id == current_user.id
+      redirect_to user_path(current_user)
+    end
   end
 
 end
