@@ -27,6 +27,8 @@ ja:
         name: 商品名
         introduction: 商品説明
         price: 税抜価格
+      comment:
+        content: コメント
   date:
     abbr_day_names:
     - 日

@@ -43,16 +43,16 @@ class Admin::ItemsController < ApplicationController
 
   private
 
+  def item_params
+    params.require(:item).permit(:category_id, :name, :introduction, :price, :item_image)
+  end
+
   def set_item
     @item = Item.find(params[:id])
   end
 
   def all_load_categories
     @categories = Category.all
-  end
-
-  def item_params
-    params.require(:item).permit(:category_id, :name, :introduction, :price, :item_image)
   end
 
 end

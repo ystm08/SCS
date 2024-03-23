@@ -1,5 +1,6 @@
 <!--@review → review, @comment → comment-->
-<div>
+<div id ="comments-error"></div>
+<div class="mt-3">
   <%= form_with model: [review, comment], local: false do |f| %>
     <%= f.text_field :content, id: "comment_textfield", style: "border: none;", class: "comment_content", placeholder: "コメントを追加..." %>
     <%= f.submit "送信", class: "custom-submit" %>

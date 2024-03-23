@@ -5,7 +5,9 @@ class User::CommentsController < ApplicationController
   def create
     @comment = current_user.comments.new(comment_params)
     @comment.review_id = @review.id
-    @comment.save
+    unless @comment.save
+      render 'error'
+    end
   end
 
   def destroy
