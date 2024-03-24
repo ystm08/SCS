@@ -39,6 +39,7 @@ Rails.application.routes.draw do
           get "followers" => "relationships#followers", as: "followers"
       end
     end
+    resources :notifications, only: [:update]
     resources :items, only: [:show]
     resources :reviews do
       resource :favorite, only: [:create, :destroy]
