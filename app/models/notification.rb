@@ -8,7 +8,7 @@ class Notification < ApplicationRecord
     if notifiable_type == "Review"
       "#{notifiable.user.user_name}さんが新しいレビューを投稿しました"
     elsif notifiable_type == "Favorite"
-      "あなたのレビューが#{notifiable.user.user_name}さんにいいねされました"
+      "#{notifiable.user.user_name}さんがあなたのレビューにいいねしました"
     else notifiable_type == "Comment"
       "#{notifiable.user.user_name}さんがあなたのレビューにコメントしました"
     end
@@ -20,7 +20,7 @@ class Notification < ApplicationRecord
     elsif notifiable_type == "Favorite"
       user_path(notifiable.user.id)
     else notifiable_type == "Comment"
-      review_path(notifiable.id)
+      review_path(notifiable.review.id)
     end
   end
 end

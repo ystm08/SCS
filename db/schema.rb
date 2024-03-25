@@ -69,7 +69,7 @@ ActiveRecord::Schema.define(version: 2024_03_24_091402) do
   create_table "comments", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "review_id", null: false
-    t.string "content", null: fanolse
+    t.string "content", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -94,7 +94,7 @@ ActiveRecord::Schema.define(version: 2024_03_24_091402) do
     t.integer "user_id", null: false
     t.string "notifiable_type", null: false
     t.integer "notifiable_id", null: false
-    t.boolean "read"
+    t.boolean "read", default: false, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["notifiable_type", "notifiable_id"], name: "index_notifications_on_notifiable"
