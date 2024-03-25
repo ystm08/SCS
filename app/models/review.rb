@@ -1,4 +1,5 @@
 class Review < ApplicationRecord
+  include Notifiable
 
   has_one_attached :review_image
 
@@ -27,6 +28,14 @@ class Review < ApplicationRecord
     user.followers.each do |follower|
       notifications.create(user_id: follower.id)
     end
+  end
+
+  def notification_message
+    "フォローしている#{user.user_name}さんがレビューを投稿しました"
+  end
+
+  def notification_path
+    review_path(self)
   end
 
 end
