@@ -28,7 +28,11 @@
           <li class="list-group-item border-0">
             <div class="dropdown" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <i class="fa-regular fa-bell"></i>
-              <span><%= current_user.notifications.where(read: false).count %></span>
+              <% if current_user.notifications.where(read: false).count > 0 %>
+                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill">
+                  <span><%= current_user.notifications.where(read: false).count %></span>
+                </span>
+              <% end %>
             </div>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
               <% if current_user.notifications.where(read: false).any? %>

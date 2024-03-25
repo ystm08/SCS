@@ -25,13 +25,14 @@ class Review < ApplicationRecord
   end
 
   after_create do
-    user.followers.each do |follower|
-      notifications.create(user_id: follower.id)
+    records = user.followers.map do |follower|
+      notifications.new(user_id: follower.id)
     end
+    Notification.import records
   end
 
   def notification_message
-    "フォローしている#{user.user_name}さんがレビューを投稿しました"
+    "#{user.user_name}さんが新しいレビューを投稿しました"
   end
 
   def notification_path
