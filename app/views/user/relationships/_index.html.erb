@@ -4,12 +4,12 @@
       <tr>
         <td>
           <%= link_to user_path(user.id) do %>
-          <%= image_tag user.get_profile_image(100,100), class: "rounded-circle" %>
+          <%= image_tag user.get_profile_image(100,100), class: "rounded-circle" %>&emsp;
           <% end %>
         </td>
-        <td><%= user.user_name %></td>
-        <td>フォロー<%= user.followings.count %></td>
-        <td>フォロワー<%= user.followers.count %></td>
+        <td><%= user.user_name %>&emsp;</td>
+        <td>フォロー<%= user.followings.count %>&emsp;</td>
+        <td>フォロワー<%= user.followers.count %>&emsp;</td>
         <td><%= render "user/relationships/btn", user: user %></td>
       </tr>
     <% end %>
