@@ -29,8 +29,6 @@ ECサイト機能も使えるファッション・美容特化型 SNS
 ・何か買いたいけど買いたいものが明確でない時
 
 ## 設計書
-・AWS構成図<br>
-https://drive.google.com/file/d/1aJEOITE9VuF2kMQEnSGgnKglpRSSN-ee/view?usp=sharing<br><br>
 ・ER図<br>
 https://drive.google.com/file/d/1EyEd3X2c6LQX0UYt7909u7SowtHiaYDA/view?usp=sharing<br><br>
 ・ワイヤーフレーム<br>
