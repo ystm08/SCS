@@ -10,13 +10,11 @@ RSpec.describe 'Itemモデルのテスト', type: :model do
     subject { item.valid? }
 
     context '空欄でないこと' do
-      # TODO:item_imageのバリデーションテスト記述変更
-      # it '商品画像が選択されていないと登録できない' do
-      #   @item.item_image.attach(io: File.open('app/images/no_image.jpg'), filename: 'no_image.jpg')
-      #   @item.item_image = ''
-      #   expect(@item).to be_invalid
-      #   expect(@item.errors.full_messages).to include('商品画像を入力してください')
-      # end
+      it '商品画像が選択されていないと登録できない' do
+        @item = Item.new(item_image: nil)
+        @item.valid?
+        expect(@item.errors.full_messages).to include('商品画像を入力してください')
+      end
 
       it '商品名が空欄では登録できない' do
         @item.name = ''
