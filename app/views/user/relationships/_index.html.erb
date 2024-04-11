@@ -1,17 +1,24 @@
-<table>
-  <tbody>
-    <% users.each do |user| %>
-      <tr>
-        <td>
-          <%= link_to user_path(user.id) do %>
-          <%= image_tag user.get_profile_image(100,100), class: "rounded-circle" %>&emsp;
+<div class="container">
+  <div class="row">
+    <div class="mx-auto">
+      <table>
+        <tbody>
+          <% users.each do |user| %>
+            <tr>
+              <td>
+                <%= link_to user_path(user.id) do %>
+                <%= image_tag user.get_profile_image(100,100), class: "rounded-circle" %>&emsp;
+                <br>
+                <% end %>
+              </td>
+              <td><%= user.user_name %>&emsp;</td>
+              <td>フォロー<%= user.followings.count %>&emsp;</td>
+              <td>フォロワー<%= user.followers.count %>&emsp;</td>
+              <td><%= render "user/relationships/btn", user: user %></td>
+            </tr>
           <% end %>
-        </td>
-        <td><%= user.user_name %>&emsp;</td>
-        <td>フォロー<%= user.followings.count %>&emsp;</td>
-        <td>フォロワー<%= user.followers.count %>&emsp;</td>
-        <td><%= render "user/relationships/btn", user: user %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
